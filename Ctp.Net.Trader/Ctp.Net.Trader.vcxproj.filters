@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="native">
+      <UniqueIdentifier>{4753395a-0fcf-474c-9b38-0a60586c1ef2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TraderApi.Custom.h" />
+    <ClInclude Include="TraderApi.h" />
+    <ClInclude Include="delegates.h">
+      <Filter>native</Filter>
+    </ClInclude>
+    <ClInclude Include="typedefs.h">
+      <Filter>native</Filter>
+    </ClInclude>
+    <ClInclude Include="TraderSpi.h">
+      <Filter>native</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TraderApi.Custom.cpp" />
+    <ClCompile Include="TraderApi.cpp" />
+    <ClCompile Include="TraderSpi.cpp">
+      <Filter>native</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

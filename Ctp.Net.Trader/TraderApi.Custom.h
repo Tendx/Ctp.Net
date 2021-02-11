@@ -1,0 +1,3 @@
+#pragma once
+#define TRADERAPI_CREATETRADERAPI
+#define TRADERAPI_RELEASE
