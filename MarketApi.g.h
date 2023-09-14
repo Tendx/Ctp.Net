@@ -46,21 +46,21 @@ namespace Ctp
             String^ GetTradingDay();
 
             /// <summary>注册前置机网络地址</summary>
-            /// <param name="pszFrontAddress">前置机网络地址。</param>
+            /// <param name="frontAddress">前置机网络地址。</param>
             /// <remarks>网络地址的格式为：“protocol://ipaddress:port”，如：”tcp://127.0.0.1:17001”。</remarks>
             /// <remarks>“tcp”代表传输协议，“127.0.0.1”代表服务器地址。”17001”代表服务器端口号。</remarks>
-            void RegisterFront(String^ pszFrontAddress);
+            void RegisterFront(String^ frontAddress);
 
             /// <summary>注册名字服务器网络地址</summary>
-            /// <param name="pszNsAddress">名字服务器网络地址。</param>
+            /// <param name="nsAddress">名字服务器网络地址。</param>
             /// <remarks>网络地址的格式为：“protocol://ipaddress:port”，如：”tcp://127.0.0.1:12001”。</remarks>
             /// <remarks>“tcp”代表传输协议，“127.0.0.1”代表服务器地址。”12001”代表服务器端口号。</remarks>
             /// <remarks>RegisterNameServer优先于RegisterFront</remarks>
-            void RegisterNameServer(String^ pszNsAddress);
+            void RegisterNameServer(String^ nsAddress);
 
             /// <summary>注册名字服务器用户信息</summary>
-            /// <param name="pFensUserInfo">用户信息。</param>
-            void RegisterFensUserInfo(FensUserInfoField^ pFensUserInfo);
+            /// <param name="fensUserInfo">用户信息。</param>
+            void RegisterFensUserInfo(FensUserInfoField^ fensUserInfo);
 
             /// <summary>订阅行情</summary>
             /// <param name="instrumentIds">合约id列表</param>
@@ -79,13 +79,13 @@ namespace Ctp
             int UnSubscribeForQuoteRsp(List<String^>^ instrumentIds);
 
             /// <summary>用户登录请求</summary>
-            int ReqUserLogin(ReqUserLoginField^ pReqUserLoginField, int nRequestID);
+            int ReqUserLogin(ReqUserLoginField^ reqUserLoginField, int requestID);
 
             /// <summary>登出请求</summary>
-            int ReqUserLogout(UserLogoutField^ pUserLogout, int nRequestID);
+            int ReqUserLogout(UserLogoutField^ userLogout, int requestID);
 
             /// <summary>请求查询组播合约</summary>
-            int ReqQryMulticastInstrument(QryMulticastInstrumentField^ pQryMulticastInstrument, int nRequestID);
+            int ReqQryMulticastInstrument(QryMulticastInstrumentField^ qryMulticastInstrument, int requestID);
 
 #pragma endregion
 

@@ -650,1229 +650,1229 @@ namespace Ctp
             return gcnew String(_api->GetTradingDay());
         }
 
-        void TraderApi::RegisterFront(String^ pszFrontAddress)
+        void TraderApi::RegisterFront(String^ frontAddress)
         {
-            IntPtr pszFrontAddressPtr = Marshal::StringToHGlobalAnsi(pszFrontAddress);
+            IntPtr frontAddressPtr = Marshal::StringToHGlobalAnsi(frontAddress);
             try
             {
-                return _api->RegisterFront(static_cast<char*>(pszFrontAddressPtr.ToPointer()));
+                return _api->RegisterFront(static_cast<char*>(frontAddressPtr.ToPointer()));
             }
             finally
             {
-                Marshal::FreeHGlobal(pszFrontAddressPtr);
+                Marshal::FreeHGlobal(frontAddressPtr);
             }
         }
 
-        void TraderApi::RegisterNameServer(String^ pszNsAddress)
+        void TraderApi::RegisterNameServer(String^ nsAddress)
         {
-            IntPtr pszNsAddressPtr = Marshal::StringToHGlobalAnsi(pszNsAddress);
+            IntPtr nsAddressPtr = Marshal::StringToHGlobalAnsi(nsAddress);
             try
             {
-                return _api->RegisterNameServer(static_cast<char*>(pszNsAddressPtr.ToPointer()));
+                return _api->RegisterNameServer(static_cast<char*>(nsAddressPtr.ToPointer()));
             }
             finally
             {
-                Marshal::FreeHGlobal(pszNsAddressPtr);
+                Marshal::FreeHGlobal(nsAddressPtr);
             }
         }
 
-        void TraderApi::RegisterFensUserInfo(FensUserInfoField^ pFensUserInfo)
+        void TraderApi::RegisterFensUserInfo(FensUserInfoField^ fensUserInfo)
         {
-            IntPtr pFensUserInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<FensUserInfoField^>());
-            Marshal::StructureToPtr(pFensUserInfo, pFensUserInfoPtr, false);
+            IntPtr fensUserInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<FensUserInfoField^>());
+            Marshal::StructureToPtr(fensUserInfo, fensUserInfoPtr, false);
             try
             {
-                return _api->RegisterFensUserInfo(static_cast<CThostFtdcFensUserInfoField*>(pFensUserInfoPtr.ToPointer()));
+                return _api->RegisterFensUserInfo(static_cast<CThostFtdcFensUserInfoField*>(fensUserInfoPtr.ToPointer()));
             }
             finally
             {
-                Marshal::FreeHGlobal(pFensUserInfoPtr);
+                Marshal::FreeHGlobal(fensUserInfoPtr);
             }
         }
 
-        void TraderApi::SubscribePrivateTopic(RESUME_TYPE nResumeType)
+        void TraderApi::SubscribePrivateTopic(RESUME_TYPE resumeType)
         {
-            return _api->SubscribePrivateTopic((THOST_TE_RESUME_TYPE)nResumeType);
+            return _api->SubscribePrivateTopic((THOST_TE_RESUME_TYPE)resumeType);
         }
 
-        void TraderApi::SubscribePublicTopic(RESUME_TYPE nResumeType)
+        void TraderApi::SubscribePublicTopic(RESUME_TYPE resumeType)
         {
-            return _api->SubscribePublicTopic((THOST_TE_RESUME_TYPE)nResumeType);
+            return _api->SubscribePublicTopic((THOST_TE_RESUME_TYPE)resumeType);
         }
 
-        int TraderApi::ReqAuthenticate(ReqAuthenticateField^ pReqAuthenticateField, int nRequestID)
+        int TraderApi::ReqAuthenticate(ReqAuthenticateField^ reqAuthenticateField, int requestID)
         {
-            IntPtr pReqAuthenticateFieldPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqAuthenticateField^>());
-            Marshal::StructureToPtr(pReqAuthenticateField, pReqAuthenticateFieldPtr, false);
+            IntPtr reqAuthenticateFieldPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqAuthenticateField^>());
+            Marshal::StructureToPtr(reqAuthenticateField, reqAuthenticateFieldPtr, false);
             try
             {
-                return _api->ReqAuthenticate(static_cast<CThostFtdcReqAuthenticateField*>(pReqAuthenticateFieldPtr.ToPointer()), nRequestID);
+                return _api->ReqAuthenticate(static_cast<CThostFtdcReqAuthenticateField*>(reqAuthenticateFieldPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqAuthenticateFieldPtr);
+                Marshal::FreeHGlobal(reqAuthenticateFieldPtr);
             }
         }
 
-        int TraderApi::RegisterUserSystemInfo(UserSystemInfoField^ pUserSystemInfo)
+        int TraderApi::RegisterUserSystemInfo(UserSystemInfoField^ userSystemInfo)
         {
-            IntPtr pUserSystemInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserSystemInfoField^>());
-            Marshal::StructureToPtr(pUserSystemInfo, pUserSystemInfoPtr, false);
+            IntPtr userSystemInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserSystemInfoField^>());
+            Marshal::StructureToPtr(userSystemInfo, userSystemInfoPtr, false);
             try
             {
-                return _api->RegisterUserSystemInfo(static_cast<CThostFtdcUserSystemInfoField*>(pUserSystemInfoPtr.ToPointer()));
+                return _api->RegisterUserSystemInfo(static_cast<CThostFtdcUserSystemInfoField*>(userSystemInfoPtr.ToPointer()));
             }
             finally
             {
-                Marshal::FreeHGlobal(pUserSystemInfoPtr);
+                Marshal::FreeHGlobal(userSystemInfoPtr);
             }
         }
 
-        int TraderApi::SubmitUserSystemInfo(UserSystemInfoField^ pUserSystemInfo)
+        int TraderApi::SubmitUserSystemInfo(UserSystemInfoField^ userSystemInfo)
         {
-            IntPtr pUserSystemInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserSystemInfoField^>());
-            Marshal::StructureToPtr(pUserSystemInfo, pUserSystemInfoPtr, false);
+            IntPtr userSystemInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserSystemInfoField^>());
+            Marshal::StructureToPtr(userSystemInfo, userSystemInfoPtr, false);
             try
             {
-                return _api->SubmitUserSystemInfo(static_cast<CThostFtdcUserSystemInfoField*>(pUserSystemInfoPtr.ToPointer()));
+                return _api->SubmitUserSystemInfo(static_cast<CThostFtdcUserSystemInfoField*>(userSystemInfoPtr.ToPointer()));
             }
             finally
             {
-                Marshal::FreeHGlobal(pUserSystemInfoPtr);
+                Marshal::FreeHGlobal(userSystemInfoPtr);
             }
         }
 
-        int TraderApi::ReqUserLogin(ReqUserLoginField^ pReqUserLoginField, int nRequestID)
+        int TraderApi::ReqUserLogin(ReqUserLoginField^ reqUserLoginField, int requestID)
         {
-            IntPtr pReqUserLoginFieldPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginField^>());
-            Marshal::StructureToPtr(pReqUserLoginField, pReqUserLoginFieldPtr, false);
+            IntPtr reqUserLoginFieldPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginField^>());
+            Marshal::StructureToPtr(reqUserLoginField, reqUserLoginFieldPtr, false);
             try
             {
-                return _api->ReqUserLogin(static_cast<CThostFtdcReqUserLoginField*>(pReqUserLoginFieldPtr.ToPointer()), nRequestID);
+                return _api->ReqUserLogin(static_cast<CThostFtdcReqUserLoginField*>(reqUserLoginFieldPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqUserLoginFieldPtr);
+                Marshal::FreeHGlobal(reqUserLoginFieldPtr);
             }
         }
 
-        int TraderApi::ReqUserLogout(UserLogoutField^ pUserLogout, int nRequestID)
+        int TraderApi::ReqUserLogout(UserLogoutField^ userLogout, int requestID)
         {
-            IntPtr pUserLogoutPtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserLogoutField^>());
-            Marshal::StructureToPtr(pUserLogout, pUserLogoutPtr, false);
+            IntPtr userLogoutPtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserLogoutField^>());
+            Marshal::StructureToPtr(userLogout, userLogoutPtr, false);
             try
             {
-                return _api->ReqUserLogout(static_cast<CThostFtdcUserLogoutField*>(pUserLogoutPtr.ToPointer()), nRequestID);
+                return _api->ReqUserLogout(static_cast<CThostFtdcUserLogoutField*>(userLogoutPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pUserLogoutPtr);
+                Marshal::FreeHGlobal(userLogoutPtr);
             }
         }
 
-        int TraderApi::ReqUserPasswordUpdate(UserPasswordUpdateField^ pUserPasswordUpdate, int nRequestID)
+        int TraderApi::ReqUserPasswordUpdate(UserPasswordUpdateField^ userPasswordUpdate, int requestID)
         {
-            IntPtr pUserPasswordUpdatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserPasswordUpdateField^>());
-            Marshal::StructureToPtr(pUserPasswordUpdate, pUserPasswordUpdatePtr, false);
+            IntPtr userPasswordUpdatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserPasswordUpdateField^>());
+            Marshal::StructureToPtr(userPasswordUpdate, userPasswordUpdatePtr, false);
             try
             {
-                return _api->ReqUserPasswordUpdate(static_cast<CThostFtdcUserPasswordUpdateField*>(pUserPasswordUpdatePtr.ToPointer()), nRequestID);
+                return _api->ReqUserPasswordUpdate(static_cast<CThostFtdcUserPasswordUpdateField*>(userPasswordUpdatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pUserPasswordUpdatePtr);
+                Marshal::FreeHGlobal(userPasswordUpdatePtr);
             }
         }
 
-        int TraderApi::ReqTradingAccountPasswordUpdate(TradingAccountPasswordUpdateField^ pTradingAccountPasswordUpdate, int nRequestID)
+        int TraderApi::ReqTradingAccountPasswordUpdate(TradingAccountPasswordUpdateField^ tradingAccountPasswordUpdate, int requestID)
         {
-            IntPtr pTradingAccountPasswordUpdatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<TradingAccountPasswordUpdateField^>());
-            Marshal::StructureToPtr(pTradingAccountPasswordUpdate, pTradingAccountPasswordUpdatePtr, false);
+            IntPtr tradingAccountPasswordUpdatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<TradingAccountPasswordUpdateField^>());
+            Marshal::StructureToPtr(tradingAccountPasswordUpdate, tradingAccountPasswordUpdatePtr, false);
             try
             {
-                return _api->ReqTradingAccountPasswordUpdate(static_cast<CThostFtdcTradingAccountPasswordUpdateField*>(pTradingAccountPasswordUpdatePtr.ToPointer()), nRequestID);
+                return _api->ReqTradingAccountPasswordUpdate(static_cast<CThostFtdcTradingAccountPasswordUpdateField*>(tradingAccountPasswordUpdatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pTradingAccountPasswordUpdatePtr);
+                Marshal::FreeHGlobal(tradingAccountPasswordUpdatePtr);
             }
         }
 
-        int TraderApi::ReqUserAuthMethod(ReqUserAuthMethodField^ pReqUserAuthMethod, int nRequestID)
+        int TraderApi::ReqUserAuthMethod(ReqUserAuthMethodField^ reqUserAuthMethod, int requestID)
         {
-            IntPtr pReqUserAuthMethodPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserAuthMethodField^>());
-            Marshal::StructureToPtr(pReqUserAuthMethod, pReqUserAuthMethodPtr, false);
+            IntPtr reqUserAuthMethodPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserAuthMethodField^>());
+            Marshal::StructureToPtr(reqUserAuthMethod, reqUserAuthMethodPtr, false);
             try
             {
-                return _api->ReqUserAuthMethod(static_cast<CThostFtdcReqUserAuthMethodField*>(pReqUserAuthMethodPtr.ToPointer()), nRequestID);
+                return _api->ReqUserAuthMethod(static_cast<CThostFtdcReqUserAuthMethodField*>(reqUserAuthMethodPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqUserAuthMethodPtr);
+                Marshal::FreeHGlobal(reqUserAuthMethodPtr);
             }
         }
 
-        int TraderApi::ReqGenUserCaptcha(ReqGenUserCaptchaField^ pReqGenUserCaptcha, int nRequestID)
+        int TraderApi::ReqGenUserCaptcha(ReqGenUserCaptchaField^ reqGenUserCaptcha, int requestID)
         {
-            IntPtr pReqGenUserCaptchaPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqGenUserCaptchaField^>());
-            Marshal::StructureToPtr(pReqGenUserCaptcha, pReqGenUserCaptchaPtr, false);
+            IntPtr reqGenUserCaptchaPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqGenUserCaptchaField^>());
+            Marshal::StructureToPtr(reqGenUserCaptcha, reqGenUserCaptchaPtr, false);
             try
             {
-                return _api->ReqGenUserCaptcha(static_cast<CThostFtdcReqGenUserCaptchaField*>(pReqGenUserCaptchaPtr.ToPointer()), nRequestID);
+                return _api->ReqGenUserCaptcha(static_cast<CThostFtdcReqGenUserCaptchaField*>(reqGenUserCaptchaPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqGenUserCaptchaPtr);
+                Marshal::FreeHGlobal(reqGenUserCaptchaPtr);
             }
         }
 
-        int TraderApi::ReqGenUserText(ReqGenUserTextField^ pReqGenUserText, int nRequestID)
+        int TraderApi::ReqGenUserText(ReqGenUserTextField^ reqGenUserText, int requestID)
         {
-            IntPtr pReqGenUserTextPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqGenUserTextField^>());
-            Marshal::StructureToPtr(pReqGenUserText, pReqGenUserTextPtr, false);
+            IntPtr reqGenUserTextPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqGenUserTextField^>());
+            Marshal::StructureToPtr(reqGenUserText, reqGenUserTextPtr, false);
             try
             {
-                return _api->ReqGenUserText(static_cast<CThostFtdcReqGenUserTextField*>(pReqGenUserTextPtr.ToPointer()), nRequestID);
+                return _api->ReqGenUserText(static_cast<CThostFtdcReqGenUserTextField*>(reqGenUserTextPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqGenUserTextPtr);
+                Marshal::FreeHGlobal(reqGenUserTextPtr);
             }
         }
 
-        int TraderApi::ReqUserLoginWithCaptcha(ReqUserLoginWithCaptchaField^ pReqUserLoginWithCaptcha, int nRequestID)
+        int TraderApi::ReqUserLoginWithCaptcha(ReqUserLoginWithCaptchaField^ reqUserLoginWithCaptcha, int requestID)
         {
-            IntPtr pReqUserLoginWithCaptchaPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginWithCaptchaField^>());
-            Marshal::StructureToPtr(pReqUserLoginWithCaptcha, pReqUserLoginWithCaptchaPtr, false);
+            IntPtr reqUserLoginWithCaptchaPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginWithCaptchaField^>());
+            Marshal::StructureToPtr(reqUserLoginWithCaptcha, reqUserLoginWithCaptchaPtr, false);
             try
             {
-                return _api->ReqUserLoginWithCaptcha(static_cast<CThostFtdcReqUserLoginWithCaptchaField*>(pReqUserLoginWithCaptchaPtr.ToPointer()), nRequestID);
+                return _api->ReqUserLoginWithCaptcha(static_cast<CThostFtdcReqUserLoginWithCaptchaField*>(reqUserLoginWithCaptchaPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqUserLoginWithCaptchaPtr);
+                Marshal::FreeHGlobal(reqUserLoginWithCaptchaPtr);
             }
         }
 
-        int TraderApi::ReqUserLoginWithText(ReqUserLoginWithTextField^ pReqUserLoginWithText, int nRequestID)
+        int TraderApi::ReqUserLoginWithText(ReqUserLoginWithTextField^ reqUserLoginWithText, int requestID)
         {
-            IntPtr pReqUserLoginWithTextPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginWithTextField^>());
-            Marshal::StructureToPtr(pReqUserLoginWithText, pReqUserLoginWithTextPtr, false);
+            IntPtr reqUserLoginWithTextPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginWithTextField^>());
+            Marshal::StructureToPtr(reqUserLoginWithText, reqUserLoginWithTextPtr, false);
             try
             {
-                return _api->ReqUserLoginWithText(static_cast<CThostFtdcReqUserLoginWithTextField*>(pReqUserLoginWithTextPtr.ToPointer()), nRequestID);
+                return _api->ReqUserLoginWithText(static_cast<CThostFtdcReqUserLoginWithTextField*>(reqUserLoginWithTextPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqUserLoginWithTextPtr);
+                Marshal::FreeHGlobal(reqUserLoginWithTextPtr);
             }
         }
 
-        int TraderApi::ReqUserLoginWithOTP(ReqUserLoginWithOTPField^ pReqUserLoginWithOTP, int nRequestID)
+        int TraderApi::ReqUserLoginWithOTP(ReqUserLoginWithOTPField^ reqUserLoginWithOTP, int requestID)
         {
-            IntPtr pReqUserLoginWithOTPPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginWithOTPField^>());
-            Marshal::StructureToPtr(pReqUserLoginWithOTP, pReqUserLoginWithOTPPtr, false);
+            IntPtr reqUserLoginWithOTPPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginWithOTPField^>());
+            Marshal::StructureToPtr(reqUserLoginWithOTP, reqUserLoginWithOTPPtr, false);
             try
             {
-                return _api->ReqUserLoginWithOTP(static_cast<CThostFtdcReqUserLoginWithOTPField*>(pReqUserLoginWithOTPPtr.ToPointer()), nRequestID);
+                return _api->ReqUserLoginWithOTP(static_cast<CThostFtdcReqUserLoginWithOTPField*>(reqUserLoginWithOTPPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqUserLoginWithOTPPtr);
+                Marshal::FreeHGlobal(reqUserLoginWithOTPPtr);
             }
         }
 
-        int TraderApi::ReqOrderInsert(InputOrderField^ pInputOrder, int nRequestID)
+        int TraderApi::ReqOrderInsert(InputOrderField^ inputOrder, int requestID)
         {
-            IntPtr pInputOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputOrderField^>());
-            Marshal::StructureToPtr(pInputOrder, pInputOrderPtr, false);
+            IntPtr inputOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputOrderField^>());
+            Marshal::StructureToPtr(inputOrder, inputOrderPtr, false);
             try
             {
-                return _api->ReqOrderInsert(static_cast<CThostFtdcInputOrderField*>(pInputOrderPtr.ToPointer()), nRequestID);
+                return _api->ReqOrderInsert(static_cast<CThostFtdcInputOrderField*>(inputOrderPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputOrderPtr);
+                Marshal::FreeHGlobal(inputOrderPtr);
             }
         }
 
-        int TraderApi::ReqParkedOrderInsert(ParkedOrderField^ pParkedOrder, int nRequestID)
+        int TraderApi::ReqParkedOrderInsert(ParkedOrderField^ parkedOrder, int requestID)
         {
-            IntPtr pParkedOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ParkedOrderField^>());
-            Marshal::StructureToPtr(pParkedOrder, pParkedOrderPtr, false);
+            IntPtr parkedOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ParkedOrderField^>());
+            Marshal::StructureToPtr(parkedOrder, parkedOrderPtr, false);
             try
             {
-                return _api->ReqParkedOrderInsert(static_cast<CThostFtdcParkedOrderField*>(pParkedOrderPtr.ToPointer()), nRequestID);
+                return _api->ReqParkedOrderInsert(static_cast<CThostFtdcParkedOrderField*>(parkedOrderPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pParkedOrderPtr);
+                Marshal::FreeHGlobal(parkedOrderPtr);
             }
         }
 
-        int TraderApi::ReqParkedOrderAction(ParkedOrderActionField^ pParkedOrderAction, int nRequestID)
+        int TraderApi::ReqParkedOrderAction(ParkedOrderActionField^ parkedOrderAction, int requestID)
         {
-            IntPtr pParkedOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ParkedOrderActionField^>());
-            Marshal::StructureToPtr(pParkedOrderAction, pParkedOrderActionPtr, false);
+            IntPtr parkedOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ParkedOrderActionField^>());
+            Marshal::StructureToPtr(parkedOrderAction, parkedOrderActionPtr, false);
             try
             {
-                return _api->ReqParkedOrderAction(static_cast<CThostFtdcParkedOrderActionField*>(pParkedOrderActionPtr.ToPointer()), nRequestID);
+                return _api->ReqParkedOrderAction(static_cast<CThostFtdcParkedOrderActionField*>(parkedOrderActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pParkedOrderActionPtr);
+                Marshal::FreeHGlobal(parkedOrderActionPtr);
             }
         }
 
-        int TraderApi::ReqOrderAction(InputOrderActionField^ pInputOrderAction, int nRequestID)
+        int TraderApi::ReqOrderAction(InputOrderActionField^ inputOrderAction, int requestID)
         {
-            IntPtr pInputOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputOrderActionField^>());
-            Marshal::StructureToPtr(pInputOrderAction, pInputOrderActionPtr, false);
+            IntPtr inputOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputOrderActionField^>());
+            Marshal::StructureToPtr(inputOrderAction, inputOrderActionPtr, false);
             try
             {
-                return _api->ReqOrderAction(static_cast<CThostFtdcInputOrderActionField*>(pInputOrderActionPtr.ToPointer()), nRequestID);
+                return _api->ReqOrderAction(static_cast<CThostFtdcInputOrderActionField*>(inputOrderActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputOrderActionPtr);
+                Marshal::FreeHGlobal(inputOrderActionPtr);
             }
         }
 
-        int TraderApi::ReqQueryMaxOrderVolume(QueryMaxOrderVolumeField^ pQueryMaxOrderVolume, int nRequestID)
+        int TraderApi::ReqQueryMaxOrderVolume(QueryMaxOrderVolumeField^ queryMaxOrderVolume, int requestID)
         {
-            IntPtr pQueryMaxOrderVolumePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QueryMaxOrderVolumeField^>());
-            Marshal::StructureToPtr(pQueryMaxOrderVolume, pQueryMaxOrderVolumePtr, false);
+            IntPtr queryMaxOrderVolumePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QueryMaxOrderVolumeField^>());
+            Marshal::StructureToPtr(queryMaxOrderVolume, queryMaxOrderVolumePtr, false);
             try
             {
-                return _api->ReqQueryMaxOrderVolume(static_cast<CThostFtdcQueryMaxOrderVolumeField*>(pQueryMaxOrderVolumePtr.ToPointer()), nRequestID);
+                return _api->ReqQueryMaxOrderVolume(static_cast<CThostFtdcQueryMaxOrderVolumeField*>(queryMaxOrderVolumePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQueryMaxOrderVolumePtr);
+                Marshal::FreeHGlobal(queryMaxOrderVolumePtr);
             }
         }
 
-        int TraderApi::ReqSettlementInfoConfirm(SettlementInfoConfirmField^ pSettlementInfoConfirm, int nRequestID)
+        int TraderApi::ReqSettlementInfoConfirm(SettlementInfoConfirmField^ settlementInfoConfirm, int requestID)
         {
-            IntPtr pSettlementInfoConfirmPtr = Marshal::AllocHGlobal(Marshal::SizeOf<SettlementInfoConfirmField^>());
-            Marshal::StructureToPtr(pSettlementInfoConfirm, pSettlementInfoConfirmPtr, false);
+            IntPtr settlementInfoConfirmPtr = Marshal::AllocHGlobal(Marshal::SizeOf<SettlementInfoConfirmField^>());
+            Marshal::StructureToPtr(settlementInfoConfirm, settlementInfoConfirmPtr, false);
             try
             {
-                return _api->ReqSettlementInfoConfirm(static_cast<CThostFtdcSettlementInfoConfirmField*>(pSettlementInfoConfirmPtr.ToPointer()), nRequestID);
+                return _api->ReqSettlementInfoConfirm(static_cast<CThostFtdcSettlementInfoConfirmField*>(settlementInfoConfirmPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pSettlementInfoConfirmPtr);
+                Marshal::FreeHGlobal(settlementInfoConfirmPtr);
             }
         }
 
-        int TraderApi::ReqRemoveParkedOrder(RemoveParkedOrderField^ pRemoveParkedOrder, int nRequestID)
+        int TraderApi::ReqRemoveParkedOrder(RemoveParkedOrderField^ removeParkedOrder, int requestID)
         {
-            IntPtr pRemoveParkedOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<RemoveParkedOrderField^>());
-            Marshal::StructureToPtr(pRemoveParkedOrder, pRemoveParkedOrderPtr, false);
+            IntPtr removeParkedOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<RemoveParkedOrderField^>());
+            Marshal::StructureToPtr(removeParkedOrder, removeParkedOrderPtr, false);
             try
             {
-                return _api->ReqRemoveParkedOrder(static_cast<CThostFtdcRemoveParkedOrderField*>(pRemoveParkedOrderPtr.ToPointer()), nRequestID);
+                return _api->ReqRemoveParkedOrder(static_cast<CThostFtdcRemoveParkedOrderField*>(removeParkedOrderPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pRemoveParkedOrderPtr);
+                Marshal::FreeHGlobal(removeParkedOrderPtr);
             }
         }
 
-        int TraderApi::ReqRemoveParkedOrderAction(RemoveParkedOrderActionField^ pRemoveParkedOrderAction, int nRequestID)
+        int TraderApi::ReqRemoveParkedOrderAction(RemoveParkedOrderActionField^ removeParkedOrderAction, int requestID)
         {
-            IntPtr pRemoveParkedOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<RemoveParkedOrderActionField^>());
-            Marshal::StructureToPtr(pRemoveParkedOrderAction, pRemoveParkedOrderActionPtr, false);
+            IntPtr removeParkedOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<RemoveParkedOrderActionField^>());
+            Marshal::StructureToPtr(removeParkedOrderAction, removeParkedOrderActionPtr, false);
             try
             {
-                return _api->ReqRemoveParkedOrderAction(static_cast<CThostFtdcRemoveParkedOrderActionField*>(pRemoveParkedOrderActionPtr.ToPointer()), nRequestID);
+                return _api->ReqRemoveParkedOrderAction(static_cast<CThostFtdcRemoveParkedOrderActionField*>(removeParkedOrderActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pRemoveParkedOrderActionPtr);
+                Marshal::FreeHGlobal(removeParkedOrderActionPtr);
             }
         }
 
-        int TraderApi::ReqExecOrderInsert(InputExecOrderField^ pInputExecOrder, int nRequestID)
+        int TraderApi::ReqExecOrderInsert(InputExecOrderField^ inputExecOrder, int requestID)
         {
-            IntPtr pInputExecOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputExecOrderField^>());
-            Marshal::StructureToPtr(pInputExecOrder, pInputExecOrderPtr, false);
+            IntPtr inputExecOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputExecOrderField^>());
+            Marshal::StructureToPtr(inputExecOrder, inputExecOrderPtr, false);
             try
             {
-                return _api->ReqExecOrderInsert(static_cast<CThostFtdcInputExecOrderField*>(pInputExecOrderPtr.ToPointer()), nRequestID);
+                return _api->ReqExecOrderInsert(static_cast<CThostFtdcInputExecOrderField*>(inputExecOrderPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputExecOrderPtr);
+                Marshal::FreeHGlobal(inputExecOrderPtr);
             }
         }
 
-        int TraderApi::ReqExecOrderAction(InputExecOrderActionField^ pInputExecOrderAction, int nRequestID)
+        int TraderApi::ReqExecOrderAction(InputExecOrderActionField^ inputExecOrderAction, int requestID)
         {
-            IntPtr pInputExecOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputExecOrderActionField^>());
-            Marshal::StructureToPtr(pInputExecOrderAction, pInputExecOrderActionPtr, false);
+            IntPtr inputExecOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputExecOrderActionField^>());
+            Marshal::StructureToPtr(inputExecOrderAction, inputExecOrderActionPtr, false);
             try
             {
-                return _api->ReqExecOrderAction(static_cast<CThostFtdcInputExecOrderActionField*>(pInputExecOrderActionPtr.ToPointer()), nRequestID);
+                return _api->ReqExecOrderAction(static_cast<CThostFtdcInputExecOrderActionField*>(inputExecOrderActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputExecOrderActionPtr);
+                Marshal::FreeHGlobal(inputExecOrderActionPtr);
             }
         }
 
-        int TraderApi::ReqForQuoteInsert(InputForQuoteField^ pInputForQuote, int nRequestID)
+        int TraderApi::ReqForQuoteInsert(InputForQuoteField^ inputForQuote, int requestID)
         {
-            IntPtr pInputForQuotePtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputForQuoteField^>());
-            Marshal::StructureToPtr(pInputForQuote, pInputForQuotePtr, false);
+            IntPtr inputForQuotePtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputForQuoteField^>());
+            Marshal::StructureToPtr(inputForQuote, inputForQuotePtr, false);
             try
             {
-                return _api->ReqForQuoteInsert(static_cast<CThostFtdcInputForQuoteField*>(pInputForQuotePtr.ToPointer()), nRequestID);
+                return _api->ReqForQuoteInsert(static_cast<CThostFtdcInputForQuoteField*>(inputForQuotePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputForQuotePtr);
+                Marshal::FreeHGlobal(inputForQuotePtr);
             }
         }
 
-        int TraderApi::ReqQuoteInsert(InputQuoteField^ pInputQuote, int nRequestID)
+        int TraderApi::ReqQuoteInsert(InputQuoteField^ inputQuote, int requestID)
         {
-            IntPtr pInputQuotePtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputQuoteField^>());
-            Marshal::StructureToPtr(pInputQuote, pInputQuotePtr, false);
+            IntPtr inputQuotePtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputQuoteField^>());
+            Marshal::StructureToPtr(inputQuote, inputQuotePtr, false);
             try
             {
-                return _api->ReqQuoteInsert(static_cast<CThostFtdcInputQuoteField*>(pInputQuotePtr.ToPointer()), nRequestID);
+                return _api->ReqQuoteInsert(static_cast<CThostFtdcInputQuoteField*>(inputQuotePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputQuotePtr);
+                Marshal::FreeHGlobal(inputQuotePtr);
             }
         }
 
-        int TraderApi::ReqQuoteAction(InputQuoteActionField^ pInputQuoteAction, int nRequestID)
+        int TraderApi::ReqQuoteAction(InputQuoteActionField^ inputQuoteAction, int requestID)
         {
-            IntPtr pInputQuoteActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputQuoteActionField^>());
-            Marshal::StructureToPtr(pInputQuoteAction, pInputQuoteActionPtr, false);
+            IntPtr inputQuoteActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputQuoteActionField^>());
+            Marshal::StructureToPtr(inputQuoteAction, inputQuoteActionPtr, false);
             try
             {
-                return _api->ReqQuoteAction(static_cast<CThostFtdcInputQuoteActionField*>(pInputQuoteActionPtr.ToPointer()), nRequestID);
+                return _api->ReqQuoteAction(static_cast<CThostFtdcInputQuoteActionField*>(inputQuoteActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputQuoteActionPtr);
+                Marshal::FreeHGlobal(inputQuoteActionPtr);
             }
         }
 
-        int TraderApi::ReqBatchOrderAction(InputBatchOrderActionField^ pInputBatchOrderAction, int nRequestID)
+        int TraderApi::ReqBatchOrderAction(InputBatchOrderActionField^ inputBatchOrderAction, int requestID)
         {
-            IntPtr pInputBatchOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputBatchOrderActionField^>());
-            Marshal::StructureToPtr(pInputBatchOrderAction, pInputBatchOrderActionPtr, false);
+            IntPtr inputBatchOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputBatchOrderActionField^>());
+            Marshal::StructureToPtr(inputBatchOrderAction, inputBatchOrderActionPtr, false);
             try
             {
-                return _api->ReqBatchOrderAction(static_cast<CThostFtdcInputBatchOrderActionField*>(pInputBatchOrderActionPtr.ToPointer()), nRequestID);
+                return _api->ReqBatchOrderAction(static_cast<CThostFtdcInputBatchOrderActionField*>(inputBatchOrderActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputBatchOrderActionPtr);
+                Marshal::FreeHGlobal(inputBatchOrderActionPtr);
             }
         }
 
-        int TraderApi::ReqOptionSelfCloseInsert(InputOptionSelfCloseField^ pInputOptionSelfClose, int nRequestID)
+        int TraderApi::ReqOptionSelfCloseInsert(InputOptionSelfCloseField^ inputOptionSelfClose, int requestID)
         {
-            IntPtr pInputOptionSelfClosePtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputOptionSelfCloseField^>());
-            Marshal::StructureToPtr(pInputOptionSelfClose, pInputOptionSelfClosePtr, false);
+            IntPtr inputOptionSelfClosePtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputOptionSelfCloseField^>());
+            Marshal::StructureToPtr(inputOptionSelfClose, inputOptionSelfClosePtr, false);
             try
             {
-                return _api->ReqOptionSelfCloseInsert(static_cast<CThostFtdcInputOptionSelfCloseField*>(pInputOptionSelfClosePtr.ToPointer()), nRequestID);
+                return _api->ReqOptionSelfCloseInsert(static_cast<CThostFtdcInputOptionSelfCloseField*>(inputOptionSelfClosePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputOptionSelfClosePtr);
+                Marshal::FreeHGlobal(inputOptionSelfClosePtr);
             }
         }
 
-        int TraderApi::ReqOptionSelfCloseAction(InputOptionSelfCloseActionField^ pInputOptionSelfCloseAction, int nRequestID)
+        int TraderApi::ReqOptionSelfCloseAction(InputOptionSelfCloseActionField^ inputOptionSelfCloseAction, int requestID)
         {
-            IntPtr pInputOptionSelfCloseActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputOptionSelfCloseActionField^>());
-            Marshal::StructureToPtr(pInputOptionSelfCloseAction, pInputOptionSelfCloseActionPtr, false);
+            IntPtr inputOptionSelfCloseActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputOptionSelfCloseActionField^>());
+            Marshal::StructureToPtr(inputOptionSelfCloseAction, inputOptionSelfCloseActionPtr, false);
             try
             {
-                return _api->ReqOptionSelfCloseAction(static_cast<CThostFtdcInputOptionSelfCloseActionField*>(pInputOptionSelfCloseActionPtr.ToPointer()), nRequestID);
+                return _api->ReqOptionSelfCloseAction(static_cast<CThostFtdcInputOptionSelfCloseActionField*>(inputOptionSelfCloseActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputOptionSelfCloseActionPtr);
+                Marshal::FreeHGlobal(inputOptionSelfCloseActionPtr);
             }
         }
 
-        int TraderApi::ReqCombActionInsert(InputCombActionField^ pInputCombAction, int nRequestID)
+        int TraderApi::ReqCombActionInsert(InputCombActionField^ inputCombAction, int requestID)
         {
-            IntPtr pInputCombActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputCombActionField^>());
-            Marshal::StructureToPtr(pInputCombAction, pInputCombActionPtr, false);
+            IntPtr inputCombActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<InputCombActionField^>());
+            Marshal::StructureToPtr(inputCombAction, inputCombActionPtr, false);
             try
             {
-                return _api->ReqCombActionInsert(static_cast<CThostFtdcInputCombActionField*>(pInputCombActionPtr.ToPointer()), nRequestID);
+                return _api->ReqCombActionInsert(static_cast<CThostFtdcInputCombActionField*>(inputCombActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pInputCombActionPtr);
+                Marshal::FreeHGlobal(inputCombActionPtr);
             }
         }
 
-        int TraderApi::ReqQryOrder(QryOrderField^ pQryOrder, int nRequestID)
+        int TraderApi::ReqQryOrder(QryOrderField^ qryOrder, int requestID)
         {
-            IntPtr pQryOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryOrderField^>());
-            Marshal::StructureToPtr(pQryOrder, pQryOrderPtr, false);
+            IntPtr qryOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryOrderField^>());
+            Marshal::StructureToPtr(qryOrder, qryOrderPtr, false);
             try
             {
-                return _api->ReqQryOrder(static_cast<CThostFtdcQryOrderField*>(pQryOrderPtr.ToPointer()), nRequestID);
+                return _api->ReqQryOrder(static_cast<CThostFtdcQryOrderField*>(qryOrderPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryOrderPtr);
+                Marshal::FreeHGlobal(qryOrderPtr);
             }
         }
 
-        int TraderApi::ReqQryTrade(QryTradeField^ pQryTrade, int nRequestID)
+        int TraderApi::ReqQryTrade(QryTradeField^ qryTrade, int requestID)
         {
-            IntPtr pQryTradePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradeField^>());
-            Marshal::StructureToPtr(pQryTrade, pQryTradePtr, false);
+            IntPtr qryTradePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradeField^>());
+            Marshal::StructureToPtr(qryTrade, qryTradePtr, false);
             try
             {
-                return _api->ReqQryTrade(static_cast<CThostFtdcQryTradeField*>(pQryTradePtr.ToPointer()), nRequestID);
+                return _api->ReqQryTrade(static_cast<CThostFtdcQryTradeField*>(qryTradePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryTradePtr);
+                Marshal::FreeHGlobal(qryTradePtr);
             }
         }
 
-        int TraderApi::ReqQryInvestorPosition(QryInvestorPositionField^ pQryInvestorPosition, int nRequestID)
+        int TraderApi::ReqQryInvestorPosition(QryInvestorPositionField^ qryInvestorPosition, int requestID)
         {
-            IntPtr pQryInvestorPositionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorPositionField^>());
-            Marshal::StructureToPtr(pQryInvestorPosition, pQryInvestorPositionPtr, false);
+            IntPtr qryInvestorPositionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorPositionField^>());
+            Marshal::StructureToPtr(qryInvestorPosition, qryInvestorPositionPtr, false);
             try
             {
-                return _api->ReqQryInvestorPosition(static_cast<CThostFtdcQryInvestorPositionField*>(pQryInvestorPositionPtr.ToPointer()), nRequestID);
+                return _api->ReqQryInvestorPosition(static_cast<CThostFtdcQryInvestorPositionField*>(qryInvestorPositionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInvestorPositionPtr);
+                Marshal::FreeHGlobal(qryInvestorPositionPtr);
             }
         }
 
-        int TraderApi::ReqQryTradingAccount(QryTradingAccountField^ pQryTradingAccount, int nRequestID)
+        int TraderApi::ReqQryTradingAccount(QryTradingAccountField^ qryTradingAccount, int requestID)
         {
-            IntPtr pQryTradingAccountPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradingAccountField^>());
-            Marshal::StructureToPtr(pQryTradingAccount, pQryTradingAccountPtr, false);
+            IntPtr qryTradingAccountPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradingAccountField^>());
+            Marshal::StructureToPtr(qryTradingAccount, qryTradingAccountPtr, false);
             try
             {
-                return _api->ReqQryTradingAccount(static_cast<CThostFtdcQryTradingAccountField*>(pQryTradingAccountPtr.ToPointer()), nRequestID);
+                return _api->ReqQryTradingAccount(static_cast<CThostFtdcQryTradingAccountField*>(qryTradingAccountPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryTradingAccountPtr);
+                Marshal::FreeHGlobal(qryTradingAccountPtr);
             }
         }
 
-        int TraderApi::ReqQryInvestor(QryInvestorField^ pQryInvestor, int nRequestID)
+        int TraderApi::ReqQryInvestor(QryInvestorField^ qryInvestor, int requestID)
         {
-            IntPtr pQryInvestorPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorField^>());
-            Marshal::StructureToPtr(pQryInvestor, pQryInvestorPtr, false);
+            IntPtr qryInvestorPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorField^>());
+            Marshal::StructureToPtr(qryInvestor, qryInvestorPtr, false);
             try
             {
-                return _api->ReqQryInvestor(static_cast<CThostFtdcQryInvestorField*>(pQryInvestorPtr.ToPointer()), nRequestID);
+                return _api->ReqQryInvestor(static_cast<CThostFtdcQryInvestorField*>(qryInvestorPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInvestorPtr);
+                Marshal::FreeHGlobal(qryInvestorPtr);
             }
         }
 
-        int TraderApi::ReqQryTradingCode(QryTradingCodeField^ pQryTradingCode, int nRequestID)
+        int TraderApi::ReqQryTradingCode(QryTradingCodeField^ qryTradingCode, int requestID)
         {
-            IntPtr pQryTradingCodePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradingCodeField^>());
-            Marshal::StructureToPtr(pQryTradingCode, pQryTradingCodePtr, false);
+            IntPtr qryTradingCodePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradingCodeField^>());
+            Marshal::StructureToPtr(qryTradingCode, qryTradingCodePtr, false);
             try
             {
-                return _api->ReqQryTradingCode(static_cast<CThostFtdcQryTradingCodeField*>(pQryTradingCodePtr.ToPointer()), nRequestID);
+                return _api->ReqQryTradingCode(static_cast<CThostFtdcQryTradingCodeField*>(qryTradingCodePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryTradingCodePtr);
+                Marshal::FreeHGlobal(qryTradingCodePtr);
             }
         }
 
-        int TraderApi::ReqQryInstrumentMarginRate(QryInstrumentMarginRateField^ pQryInstrumentMarginRate, int nRequestID)
+        int TraderApi::ReqQryInstrumentMarginRate(QryInstrumentMarginRateField^ qryInstrumentMarginRate, int requestID)
         {
-            IntPtr pQryInstrumentMarginRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInstrumentMarginRateField^>());
-            Marshal::StructureToPtr(pQryInstrumentMarginRate, pQryInstrumentMarginRatePtr, false);
+            IntPtr qryInstrumentMarginRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInstrumentMarginRateField^>());
+            Marshal::StructureToPtr(qryInstrumentMarginRate, qryInstrumentMarginRatePtr, false);
             try
             {
-                return _api->ReqQryInstrumentMarginRate(static_cast<CThostFtdcQryInstrumentMarginRateField*>(pQryInstrumentMarginRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryInstrumentMarginRate(static_cast<CThostFtdcQryInstrumentMarginRateField*>(qryInstrumentMarginRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInstrumentMarginRatePtr);
+                Marshal::FreeHGlobal(qryInstrumentMarginRatePtr);
             }
         }
 
-        int TraderApi::ReqQryInstrumentCommissionRate(QryInstrumentCommissionRateField^ pQryInstrumentCommissionRate, int nRequestID)
+        int TraderApi::ReqQryInstrumentCommissionRate(QryInstrumentCommissionRateField^ qryInstrumentCommissionRate, int requestID)
         {
-            IntPtr pQryInstrumentCommissionRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInstrumentCommissionRateField^>());
-            Marshal::StructureToPtr(pQryInstrumentCommissionRate, pQryInstrumentCommissionRatePtr, false);
+            IntPtr qryInstrumentCommissionRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInstrumentCommissionRateField^>());
+            Marshal::StructureToPtr(qryInstrumentCommissionRate, qryInstrumentCommissionRatePtr, false);
             try
             {
-                return _api->ReqQryInstrumentCommissionRate(static_cast<CThostFtdcQryInstrumentCommissionRateField*>(pQryInstrumentCommissionRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryInstrumentCommissionRate(static_cast<CThostFtdcQryInstrumentCommissionRateField*>(qryInstrumentCommissionRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInstrumentCommissionRatePtr);
+                Marshal::FreeHGlobal(qryInstrumentCommissionRatePtr);
             }
         }
 
-        int TraderApi::ReqQryExchange(QryExchangeField^ pQryExchange, int nRequestID)
+        int TraderApi::ReqQryExchange(QryExchangeField^ qryExchange, int requestID)
         {
-            IntPtr pQryExchangePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExchangeField^>());
-            Marshal::StructureToPtr(pQryExchange, pQryExchangePtr, false);
+            IntPtr qryExchangePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExchangeField^>());
+            Marshal::StructureToPtr(qryExchange, qryExchangePtr, false);
             try
             {
-                return _api->ReqQryExchange(static_cast<CThostFtdcQryExchangeField*>(pQryExchangePtr.ToPointer()), nRequestID);
+                return _api->ReqQryExchange(static_cast<CThostFtdcQryExchangeField*>(qryExchangePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryExchangePtr);
+                Marshal::FreeHGlobal(qryExchangePtr);
             }
         }
 
-        int TraderApi::ReqQryProduct(QryProductField^ pQryProduct, int nRequestID)
+        int TraderApi::ReqQryProduct(QryProductField^ qryProduct, int requestID)
         {
-            IntPtr pQryProductPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryProductField^>());
-            Marshal::StructureToPtr(pQryProduct, pQryProductPtr, false);
+            IntPtr qryProductPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryProductField^>());
+            Marshal::StructureToPtr(qryProduct, qryProductPtr, false);
             try
             {
-                return _api->ReqQryProduct(static_cast<CThostFtdcQryProductField*>(pQryProductPtr.ToPointer()), nRequestID);
+                return _api->ReqQryProduct(static_cast<CThostFtdcQryProductField*>(qryProductPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryProductPtr);
+                Marshal::FreeHGlobal(qryProductPtr);
             }
         }
 
-        int TraderApi::ReqQryInstrument(QryInstrumentField^ pQryInstrument, int nRequestID)
+        int TraderApi::ReqQryInstrument(QryInstrumentField^ qryInstrument, int requestID)
         {
-            IntPtr pQryInstrumentPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInstrumentField^>());
-            Marshal::StructureToPtr(pQryInstrument, pQryInstrumentPtr, false);
+            IntPtr qryInstrumentPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInstrumentField^>());
+            Marshal::StructureToPtr(qryInstrument, qryInstrumentPtr, false);
             try
             {
-                return _api->ReqQryInstrument(static_cast<CThostFtdcQryInstrumentField*>(pQryInstrumentPtr.ToPointer()), nRequestID);
+                return _api->ReqQryInstrument(static_cast<CThostFtdcQryInstrumentField*>(qryInstrumentPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInstrumentPtr);
+                Marshal::FreeHGlobal(qryInstrumentPtr);
             }
         }
 
-        int TraderApi::ReqQryDepthMarketData(QryDepthMarketDataField^ pQryDepthMarketData, int nRequestID)
+        int TraderApi::ReqQryDepthMarketData(QryDepthMarketDataField^ qryDepthMarketData, int requestID)
         {
-            IntPtr pQryDepthMarketDataPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryDepthMarketDataField^>());
-            Marshal::StructureToPtr(pQryDepthMarketData, pQryDepthMarketDataPtr, false);
+            IntPtr qryDepthMarketDataPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryDepthMarketDataField^>());
+            Marshal::StructureToPtr(qryDepthMarketData, qryDepthMarketDataPtr, false);
             try
             {
-                return _api->ReqQryDepthMarketData(static_cast<CThostFtdcQryDepthMarketDataField*>(pQryDepthMarketDataPtr.ToPointer()), nRequestID);
+                return _api->ReqQryDepthMarketData(static_cast<CThostFtdcQryDepthMarketDataField*>(qryDepthMarketDataPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryDepthMarketDataPtr);
+                Marshal::FreeHGlobal(qryDepthMarketDataPtr);
             }
         }
 
-        int TraderApi::ReqQrySettlementInfo(QrySettlementInfoField^ pQrySettlementInfo, int nRequestID)
+        int TraderApi::ReqQrySettlementInfo(QrySettlementInfoField^ qrySettlementInfo, int requestID)
         {
-            IntPtr pQrySettlementInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySettlementInfoField^>());
-            Marshal::StructureToPtr(pQrySettlementInfo, pQrySettlementInfoPtr, false);
+            IntPtr qrySettlementInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySettlementInfoField^>());
+            Marshal::StructureToPtr(qrySettlementInfo, qrySettlementInfoPtr, false);
             try
             {
-                return _api->ReqQrySettlementInfo(static_cast<CThostFtdcQrySettlementInfoField*>(pQrySettlementInfoPtr.ToPointer()), nRequestID);
+                return _api->ReqQrySettlementInfo(static_cast<CThostFtdcQrySettlementInfoField*>(qrySettlementInfoPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQrySettlementInfoPtr);
+                Marshal::FreeHGlobal(qrySettlementInfoPtr);
             }
         }
 
-        int TraderApi::ReqQryTransferBank(QryTransferBankField^ pQryTransferBank, int nRequestID)
+        int TraderApi::ReqQryTransferBank(QryTransferBankField^ qryTransferBank, int requestID)
         {
-            IntPtr pQryTransferBankPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTransferBankField^>());
-            Marshal::StructureToPtr(pQryTransferBank, pQryTransferBankPtr, false);
+            IntPtr qryTransferBankPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTransferBankField^>());
+            Marshal::StructureToPtr(qryTransferBank, qryTransferBankPtr, false);
             try
             {
-                return _api->ReqQryTransferBank(static_cast<CThostFtdcQryTransferBankField*>(pQryTransferBankPtr.ToPointer()), nRequestID);
+                return _api->ReqQryTransferBank(static_cast<CThostFtdcQryTransferBankField*>(qryTransferBankPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryTransferBankPtr);
+                Marshal::FreeHGlobal(qryTransferBankPtr);
             }
         }
 
-        int TraderApi::ReqQryInvestorPositionDetail(QryInvestorPositionDetailField^ pQryInvestorPositionDetail, int nRequestID)
+        int TraderApi::ReqQryInvestorPositionDetail(QryInvestorPositionDetailField^ qryInvestorPositionDetail, int requestID)
         {
-            IntPtr pQryInvestorPositionDetailPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorPositionDetailField^>());
-            Marshal::StructureToPtr(pQryInvestorPositionDetail, pQryInvestorPositionDetailPtr, false);
+            IntPtr qryInvestorPositionDetailPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorPositionDetailField^>());
+            Marshal::StructureToPtr(qryInvestorPositionDetail, qryInvestorPositionDetailPtr, false);
             try
             {
-                return _api->ReqQryInvestorPositionDetail(static_cast<CThostFtdcQryInvestorPositionDetailField*>(pQryInvestorPositionDetailPtr.ToPointer()), nRequestID);
+                return _api->ReqQryInvestorPositionDetail(static_cast<CThostFtdcQryInvestorPositionDetailField*>(qryInvestorPositionDetailPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInvestorPositionDetailPtr);
+                Marshal::FreeHGlobal(qryInvestorPositionDetailPtr);
             }
         }
 
-        int TraderApi::ReqQryNotice(QryNoticeField^ pQryNotice, int nRequestID)
+        int TraderApi::ReqQryNotice(QryNoticeField^ qryNotice, int requestID)
         {
-            IntPtr pQryNoticePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryNoticeField^>());
-            Marshal::StructureToPtr(pQryNotice, pQryNoticePtr, false);
+            IntPtr qryNoticePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryNoticeField^>());
+            Marshal::StructureToPtr(qryNotice, qryNoticePtr, false);
             try
             {
-                return _api->ReqQryNotice(static_cast<CThostFtdcQryNoticeField*>(pQryNoticePtr.ToPointer()), nRequestID);
+                return _api->ReqQryNotice(static_cast<CThostFtdcQryNoticeField*>(qryNoticePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryNoticePtr);
+                Marshal::FreeHGlobal(qryNoticePtr);
             }
         }
 
-        int TraderApi::ReqQrySettlementInfoConfirm(QrySettlementInfoConfirmField^ pQrySettlementInfoConfirm, int nRequestID)
+        int TraderApi::ReqQrySettlementInfoConfirm(QrySettlementInfoConfirmField^ qrySettlementInfoConfirm, int requestID)
         {
-            IntPtr pQrySettlementInfoConfirmPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySettlementInfoConfirmField^>());
-            Marshal::StructureToPtr(pQrySettlementInfoConfirm, pQrySettlementInfoConfirmPtr, false);
+            IntPtr qrySettlementInfoConfirmPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySettlementInfoConfirmField^>());
+            Marshal::StructureToPtr(qrySettlementInfoConfirm, qrySettlementInfoConfirmPtr, false);
             try
             {
-                return _api->ReqQrySettlementInfoConfirm(static_cast<CThostFtdcQrySettlementInfoConfirmField*>(pQrySettlementInfoConfirmPtr.ToPointer()), nRequestID);
+                return _api->ReqQrySettlementInfoConfirm(static_cast<CThostFtdcQrySettlementInfoConfirmField*>(qrySettlementInfoConfirmPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQrySettlementInfoConfirmPtr);
+                Marshal::FreeHGlobal(qrySettlementInfoConfirmPtr);
             }
         }
 
-        int TraderApi::ReqQryInvestorPositionCombineDetail(QryInvestorPositionCombineDetailField^ pQryInvestorPositionCombineDetail, int nRequestID)
+        int TraderApi::ReqQryInvestorPositionCombineDetail(QryInvestorPositionCombineDetailField^ qryInvestorPositionCombineDetail, int requestID)
         {
-            IntPtr pQryInvestorPositionCombineDetailPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorPositionCombineDetailField^>());
-            Marshal::StructureToPtr(pQryInvestorPositionCombineDetail, pQryInvestorPositionCombineDetailPtr, false);
+            IntPtr qryInvestorPositionCombineDetailPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorPositionCombineDetailField^>());
+            Marshal::StructureToPtr(qryInvestorPositionCombineDetail, qryInvestorPositionCombineDetailPtr, false);
             try
             {
-                return _api->ReqQryInvestorPositionCombineDetail(static_cast<CThostFtdcQryInvestorPositionCombineDetailField*>(pQryInvestorPositionCombineDetailPtr.ToPointer()), nRequestID);
+                return _api->ReqQryInvestorPositionCombineDetail(static_cast<CThostFtdcQryInvestorPositionCombineDetailField*>(qryInvestorPositionCombineDetailPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInvestorPositionCombineDetailPtr);
+                Marshal::FreeHGlobal(qryInvestorPositionCombineDetailPtr);
             }
         }
 
-        int TraderApi::ReqQryCFMMCTradingAccountKey(QryCFMMCTradingAccountKeyField^ pQryCFMMCTradingAccountKey, int nRequestID)
+        int TraderApi::ReqQryCFMMCTradingAccountKey(QryCFMMCTradingAccountKeyField^ qryCFMMCTradingAccountKey, int requestID)
         {
-            IntPtr pQryCFMMCTradingAccountKeyPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryCFMMCTradingAccountKeyField^>());
-            Marshal::StructureToPtr(pQryCFMMCTradingAccountKey, pQryCFMMCTradingAccountKeyPtr, false);
+            IntPtr qryCFMMCTradingAccountKeyPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryCFMMCTradingAccountKeyField^>());
+            Marshal::StructureToPtr(qryCFMMCTradingAccountKey, qryCFMMCTradingAccountKeyPtr, false);
             try
             {
-                return _api->ReqQryCFMMCTradingAccountKey(static_cast<CThostFtdcQryCFMMCTradingAccountKeyField*>(pQryCFMMCTradingAccountKeyPtr.ToPointer()), nRequestID);
+                return _api->ReqQryCFMMCTradingAccountKey(static_cast<CThostFtdcQryCFMMCTradingAccountKeyField*>(qryCFMMCTradingAccountKeyPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryCFMMCTradingAccountKeyPtr);
+                Marshal::FreeHGlobal(qryCFMMCTradingAccountKeyPtr);
             }
         }
 
-        int TraderApi::ReqQryEWarrantOffset(QryEWarrantOffsetField^ pQryEWarrantOffset, int nRequestID)
+        int TraderApi::ReqQryEWarrantOffset(QryEWarrantOffsetField^ qryEWarrantOffset, int requestID)
         {
-            IntPtr pQryEWarrantOffsetPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryEWarrantOffsetField^>());
-            Marshal::StructureToPtr(pQryEWarrantOffset, pQryEWarrantOffsetPtr, false);
+            IntPtr qryEWarrantOffsetPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryEWarrantOffsetField^>());
+            Marshal::StructureToPtr(qryEWarrantOffset, qryEWarrantOffsetPtr, false);
             try
             {
-                return _api->ReqQryEWarrantOffset(static_cast<CThostFtdcQryEWarrantOffsetField*>(pQryEWarrantOffsetPtr.ToPointer()), nRequestID);
+                return _api->ReqQryEWarrantOffset(static_cast<CThostFtdcQryEWarrantOffsetField*>(qryEWarrantOffsetPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryEWarrantOffsetPtr);
+                Marshal::FreeHGlobal(qryEWarrantOffsetPtr);
             }
         }
 
-        int TraderApi::ReqQryInvestorProductGroupMargin(QryInvestorProductGroupMarginField^ pQryInvestorProductGroupMargin, int nRequestID)
+        int TraderApi::ReqQryInvestorProductGroupMargin(QryInvestorProductGroupMarginField^ qryInvestorProductGroupMargin, int requestID)
         {
-            IntPtr pQryInvestorProductGroupMarginPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorProductGroupMarginField^>());
-            Marshal::StructureToPtr(pQryInvestorProductGroupMargin, pQryInvestorProductGroupMarginPtr, false);
+            IntPtr qryInvestorProductGroupMarginPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestorProductGroupMarginField^>());
+            Marshal::StructureToPtr(qryInvestorProductGroupMargin, qryInvestorProductGroupMarginPtr, false);
             try
             {
-                return _api->ReqQryInvestorProductGroupMargin(static_cast<CThostFtdcQryInvestorProductGroupMarginField*>(pQryInvestorProductGroupMarginPtr.ToPointer()), nRequestID);
+                return _api->ReqQryInvestorProductGroupMargin(static_cast<CThostFtdcQryInvestorProductGroupMarginField*>(qryInvestorProductGroupMarginPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInvestorProductGroupMarginPtr);
+                Marshal::FreeHGlobal(qryInvestorProductGroupMarginPtr);
             }
         }
 
-        int TraderApi::ReqQryExchangeMarginRate(QryExchangeMarginRateField^ pQryExchangeMarginRate, int nRequestID)
+        int TraderApi::ReqQryExchangeMarginRate(QryExchangeMarginRateField^ qryExchangeMarginRate, int requestID)
         {
-            IntPtr pQryExchangeMarginRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExchangeMarginRateField^>());
-            Marshal::StructureToPtr(pQryExchangeMarginRate, pQryExchangeMarginRatePtr, false);
+            IntPtr qryExchangeMarginRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExchangeMarginRateField^>());
+            Marshal::StructureToPtr(qryExchangeMarginRate, qryExchangeMarginRatePtr, false);
             try
             {
-                return _api->ReqQryExchangeMarginRate(static_cast<CThostFtdcQryExchangeMarginRateField*>(pQryExchangeMarginRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryExchangeMarginRate(static_cast<CThostFtdcQryExchangeMarginRateField*>(qryExchangeMarginRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryExchangeMarginRatePtr);
+                Marshal::FreeHGlobal(qryExchangeMarginRatePtr);
             }
         }
 
-        int TraderApi::ReqQryExchangeMarginRateAdjust(QryExchangeMarginRateAdjustField^ pQryExchangeMarginRateAdjust, int nRequestID)
+        int TraderApi::ReqQryExchangeMarginRateAdjust(QryExchangeMarginRateAdjustField^ qryExchangeMarginRateAdjust, int requestID)
         {
-            IntPtr pQryExchangeMarginRateAdjustPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExchangeMarginRateAdjustField^>());
-            Marshal::StructureToPtr(pQryExchangeMarginRateAdjust, pQryExchangeMarginRateAdjustPtr, false);
+            IntPtr qryExchangeMarginRateAdjustPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExchangeMarginRateAdjustField^>());
+            Marshal::StructureToPtr(qryExchangeMarginRateAdjust, qryExchangeMarginRateAdjustPtr, false);
             try
             {
-                return _api->ReqQryExchangeMarginRateAdjust(static_cast<CThostFtdcQryExchangeMarginRateAdjustField*>(pQryExchangeMarginRateAdjustPtr.ToPointer()), nRequestID);
+                return _api->ReqQryExchangeMarginRateAdjust(static_cast<CThostFtdcQryExchangeMarginRateAdjustField*>(qryExchangeMarginRateAdjustPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryExchangeMarginRateAdjustPtr);
+                Marshal::FreeHGlobal(qryExchangeMarginRateAdjustPtr);
             }
         }
 
-        int TraderApi::ReqQryExchangeRate(QryExchangeRateField^ pQryExchangeRate, int nRequestID)
+        int TraderApi::ReqQryExchangeRate(QryExchangeRateField^ qryExchangeRate, int requestID)
         {
-            IntPtr pQryExchangeRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExchangeRateField^>());
-            Marshal::StructureToPtr(pQryExchangeRate, pQryExchangeRatePtr, false);
+            IntPtr qryExchangeRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExchangeRateField^>());
+            Marshal::StructureToPtr(qryExchangeRate, qryExchangeRatePtr, false);
             try
             {
-                return _api->ReqQryExchangeRate(static_cast<CThostFtdcQryExchangeRateField*>(pQryExchangeRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryExchangeRate(static_cast<CThostFtdcQryExchangeRateField*>(qryExchangeRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryExchangeRatePtr);
+                Marshal::FreeHGlobal(qryExchangeRatePtr);
             }
         }
 
-        int TraderApi::ReqQrySecAgentACIDMap(QrySecAgentACIDMapField^ pQrySecAgentACIDMap, int nRequestID)
+        int TraderApi::ReqQrySecAgentACIDMap(QrySecAgentACIDMapField^ qrySecAgentACIDMap, int requestID)
         {
-            IntPtr pQrySecAgentACIDMapPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySecAgentACIDMapField^>());
-            Marshal::StructureToPtr(pQrySecAgentACIDMap, pQrySecAgentACIDMapPtr, false);
+            IntPtr qrySecAgentACIDMapPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySecAgentACIDMapField^>());
+            Marshal::StructureToPtr(qrySecAgentACIDMap, qrySecAgentACIDMapPtr, false);
             try
             {
-                return _api->ReqQrySecAgentACIDMap(static_cast<CThostFtdcQrySecAgentACIDMapField*>(pQrySecAgentACIDMapPtr.ToPointer()), nRequestID);
+                return _api->ReqQrySecAgentACIDMap(static_cast<CThostFtdcQrySecAgentACIDMapField*>(qrySecAgentACIDMapPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQrySecAgentACIDMapPtr);
+                Marshal::FreeHGlobal(qrySecAgentACIDMapPtr);
             }
         }
 
-        int TraderApi::ReqQryProductExchRate(QryProductExchRateField^ pQryProductExchRate, int nRequestID)
+        int TraderApi::ReqQryProductExchRate(QryProductExchRateField^ qryProductExchRate, int requestID)
         {
-            IntPtr pQryProductExchRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryProductExchRateField^>());
-            Marshal::StructureToPtr(pQryProductExchRate, pQryProductExchRatePtr, false);
+            IntPtr qryProductExchRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryProductExchRateField^>());
+            Marshal::StructureToPtr(qryProductExchRate, qryProductExchRatePtr, false);
             try
             {
-                return _api->ReqQryProductExchRate(static_cast<CThostFtdcQryProductExchRateField*>(pQryProductExchRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryProductExchRate(static_cast<CThostFtdcQryProductExchRateField*>(qryProductExchRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryProductExchRatePtr);
+                Marshal::FreeHGlobal(qryProductExchRatePtr);
             }
         }
 
-        int TraderApi::ReqQryProductGroup(QryProductGroupField^ pQryProductGroup, int nRequestID)
+        int TraderApi::ReqQryProductGroup(QryProductGroupField^ qryProductGroup, int requestID)
         {
-            IntPtr pQryProductGroupPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryProductGroupField^>());
-            Marshal::StructureToPtr(pQryProductGroup, pQryProductGroupPtr, false);
+            IntPtr qryProductGroupPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryProductGroupField^>());
+            Marshal::StructureToPtr(qryProductGroup, qryProductGroupPtr, false);
             try
             {
-                return _api->ReqQryProductGroup(static_cast<CThostFtdcQryProductGroupField*>(pQryProductGroupPtr.ToPointer()), nRequestID);
+                return _api->ReqQryProductGroup(static_cast<CThostFtdcQryProductGroupField*>(qryProductGroupPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryProductGroupPtr);
+                Marshal::FreeHGlobal(qryProductGroupPtr);
             }
         }
 
-        int TraderApi::ReqQryMMInstrumentCommissionRate(QryMMInstrumentCommissionRateField^ pQryMMInstrumentCommissionRate, int nRequestID)
+        int TraderApi::ReqQryMMInstrumentCommissionRate(QryMMInstrumentCommissionRateField^ qryMMInstrumentCommissionRate, int requestID)
         {
-            IntPtr pQryMMInstrumentCommissionRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryMMInstrumentCommissionRateField^>());
-            Marshal::StructureToPtr(pQryMMInstrumentCommissionRate, pQryMMInstrumentCommissionRatePtr, false);
+            IntPtr qryMMInstrumentCommissionRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryMMInstrumentCommissionRateField^>());
+            Marshal::StructureToPtr(qryMMInstrumentCommissionRate, qryMMInstrumentCommissionRatePtr, false);
             try
             {
-                return _api->ReqQryMMInstrumentCommissionRate(static_cast<CThostFtdcQryMMInstrumentCommissionRateField*>(pQryMMInstrumentCommissionRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryMMInstrumentCommissionRate(static_cast<CThostFtdcQryMMInstrumentCommissionRateField*>(qryMMInstrumentCommissionRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryMMInstrumentCommissionRatePtr);
+                Marshal::FreeHGlobal(qryMMInstrumentCommissionRatePtr);
             }
         }
 
-        int TraderApi::ReqQryMMOptionInstrCommRate(QryMMOptionInstrCommRateField^ pQryMMOptionInstrCommRate, int nRequestID)
+        int TraderApi::ReqQryMMOptionInstrCommRate(QryMMOptionInstrCommRateField^ qryMMOptionInstrCommRate, int requestID)
         {
-            IntPtr pQryMMOptionInstrCommRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryMMOptionInstrCommRateField^>());
-            Marshal::StructureToPtr(pQryMMOptionInstrCommRate, pQryMMOptionInstrCommRatePtr, false);
+            IntPtr qryMMOptionInstrCommRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryMMOptionInstrCommRateField^>());
+            Marshal::StructureToPtr(qryMMOptionInstrCommRate, qryMMOptionInstrCommRatePtr, false);
             try
             {
-                return _api->ReqQryMMOptionInstrCommRate(static_cast<CThostFtdcQryMMOptionInstrCommRateField*>(pQryMMOptionInstrCommRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryMMOptionInstrCommRate(static_cast<CThostFtdcQryMMOptionInstrCommRateField*>(qryMMOptionInstrCommRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryMMOptionInstrCommRatePtr);
+                Marshal::FreeHGlobal(qryMMOptionInstrCommRatePtr);
             }
         }
 
-        int TraderApi::ReqQryInstrumentOrderCommRate(QryInstrumentOrderCommRateField^ pQryInstrumentOrderCommRate, int nRequestID)
+        int TraderApi::ReqQryInstrumentOrderCommRate(QryInstrumentOrderCommRateField^ qryInstrumentOrderCommRate, int requestID)
         {
-            IntPtr pQryInstrumentOrderCommRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInstrumentOrderCommRateField^>());
-            Marshal::StructureToPtr(pQryInstrumentOrderCommRate, pQryInstrumentOrderCommRatePtr, false);
+            IntPtr qryInstrumentOrderCommRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInstrumentOrderCommRateField^>());
+            Marshal::StructureToPtr(qryInstrumentOrderCommRate, qryInstrumentOrderCommRatePtr, false);
             try
             {
-                return _api->ReqQryInstrumentOrderCommRate(static_cast<CThostFtdcQryInstrumentOrderCommRateField*>(pQryInstrumentOrderCommRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryInstrumentOrderCommRate(static_cast<CThostFtdcQryInstrumentOrderCommRateField*>(qryInstrumentOrderCommRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInstrumentOrderCommRatePtr);
+                Marshal::FreeHGlobal(qryInstrumentOrderCommRatePtr);
             }
         }
 
-        int TraderApi::ReqQrySecAgentTradingAccount(QryTradingAccountField^ pQryTradingAccount, int nRequestID)
+        int TraderApi::ReqQrySecAgentTradingAccount(QryTradingAccountField^ qryTradingAccount, int requestID)
         {
-            IntPtr pQryTradingAccountPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradingAccountField^>());
-            Marshal::StructureToPtr(pQryTradingAccount, pQryTradingAccountPtr, false);
+            IntPtr qryTradingAccountPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradingAccountField^>());
+            Marshal::StructureToPtr(qryTradingAccount, qryTradingAccountPtr, false);
             try
             {
-                return _api->ReqQrySecAgentTradingAccount(static_cast<CThostFtdcQryTradingAccountField*>(pQryTradingAccountPtr.ToPointer()), nRequestID);
+                return _api->ReqQrySecAgentTradingAccount(static_cast<CThostFtdcQryTradingAccountField*>(qryTradingAccountPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryTradingAccountPtr);
+                Marshal::FreeHGlobal(qryTradingAccountPtr);
             }
         }
 
-        int TraderApi::ReqQrySecAgentCheckMode(QrySecAgentCheckModeField^ pQrySecAgentCheckMode, int nRequestID)
+        int TraderApi::ReqQrySecAgentCheckMode(QrySecAgentCheckModeField^ qrySecAgentCheckMode, int requestID)
         {
-            IntPtr pQrySecAgentCheckModePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySecAgentCheckModeField^>());
-            Marshal::StructureToPtr(pQrySecAgentCheckMode, pQrySecAgentCheckModePtr, false);
+            IntPtr qrySecAgentCheckModePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySecAgentCheckModeField^>());
+            Marshal::StructureToPtr(qrySecAgentCheckMode, qrySecAgentCheckModePtr, false);
             try
             {
-                return _api->ReqQrySecAgentCheckMode(static_cast<CThostFtdcQrySecAgentCheckModeField*>(pQrySecAgentCheckModePtr.ToPointer()), nRequestID);
+                return _api->ReqQrySecAgentCheckMode(static_cast<CThostFtdcQrySecAgentCheckModeField*>(qrySecAgentCheckModePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQrySecAgentCheckModePtr);
+                Marshal::FreeHGlobal(qrySecAgentCheckModePtr);
             }
         }
 
-        int TraderApi::ReqQrySecAgentTradeInfo(QrySecAgentTradeInfoField^ pQrySecAgentTradeInfo, int nRequestID)
+        int TraderApi::ReqQrySecAgentTradeInfo(QrySecAgentTradeInfoField^ qrySecAgentTradeInfo, int requestID)
         {
-            IntPtr pQrySecAgentTradeInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySecAgentTradeInfoField^>());
-            Marshal::StructureToPtr(pQrySecAgentTradeInfo, pQrySecAgentTradeInfoPtr, false);
+            IntPtr qrySecAgentTradeInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QrySecAgentTradeInfoField^>());
+            Marshal::StructureToPtr(qrySecAgentTradeInfo, qrySecAgentTradeInfoPtr, false);
             try
             {
-                return _api->ReqQrySecAgentTradeInfo(static_cast<CThostFtdcQrySecAgentTradeInfoField*>(pQrySecAgentTradeInfoPtr.ToPointer()), nRequestID);
+                return _api->ReqQrySecAgentTradeInfo(static_cast<CThostFtdcQrySecAgentTradeInfoField*>(qrySecAgentTradeInfoPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQrySecAgentTradeInfoPtr);
+                Marshal::FreeHGlobal(qrySecAgentTradeInfoPtr);
             }
         }
 
-        int TraderApi::ReqQryOptionInstrTradeCost(QryOptionInstrTradeCostField^ pQryOptionInstrTradeCost, int nRequestID)
+        int TraderApi::ReqQryOptionInstrTradeCost(QryOptionInstrTradeCostField^ qryOptionInstrTradeCost, int requestID)
         {
-            IntPtr pQryOptionInstrTradeCostPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryOptionInstrTradeCostField^>());
-            Marshal::StructureToPtr(pQryOptionInstrTradeCost, pQryOptionInstrTradeCostPtr, false);
+            IntPtr qryOptionInstrTradeCostPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryOptionInstrTradeCostField^>());
+            Marshal::StructureToPtr(qryOptionInstrTradeCost, qryOptionInstrTradeCostPtr, false);
             try
             {
-                return _api->ReqQryOptionInstrTradeCost(static_cast<CThostFtdcQryOptionInstrTradeCostField*>(pQryOptionInstrTradeCostPtr.ToPointer()), nRequestID);
+                return _api->ReqQryOptionInstrTradeCost(static_cast<CThostFtdcQryOptionInstrTradeCostField*>(qryOptionInstrTradeCostPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryOptionInstrTradeCostPtr);
+                Marshal::FreeHGlobal(qryOptionInstrTradeCostPtr);
             }
         }
 
-        int TraderApi::ReqQryOptionInstrCommRate(QryOptionInstrCommRateField^ pQryOptionInstrCommRate, int nRequestID)
+        int TraderApi::ReqQryOptionInstrCommRate(QryOptionInstrCommRateField^ qryOptionInstrCommRate, int requestID)
         {
-            IntPtr pQryOptionInstrCommRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryOptionInstrCommRateField^>());
-            Marshal::StructureToPtr(pQryOptionInstrCommRate, pQryOptionInstrCommRatePtr, false);
+            IntPtr qryOptionInstrCommRatePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryOptionInstrCommRateField^>());
+            Marshal::StructureToPtr(qryOptionInstrCommRate, qryOptionInstrCommRatePtr, false);
             try
             {
-                return _api->ReqQryOptionInstrCommRate(static_cast<CThostFtdcQryOptionInstrCommRateField*>(pQryOptionInstrCommRatePtr.ToPointer()), nRequestID);
+                return _api->ReqQryOptionInstrCommRate(static_cast<CThostFtdcQryOptionInstrCommRateField*>(qryOptionInstrCommRatePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryOptionInstrCommRatePtr);
+                Marshal::FreeHGlobal(qryOptionInstrCommRatePtr);
             }
         }
 
-        int TraderApi::ReqQryExecOrder(QryExecOrderField^ pQryExecOrder, int nRequestID)
+        int TraderApi::ReqQryExecOrder(QryExecOrderField^ qryExecOrder, int requestID)
         {
-            IntPtr pQryExecOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExecOrderField^>());
-            Marshal::StructureToPtr(pQryExecOrder, pQryExecOrderPtr, false);
+            IntPtr qryExecOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryExecOrderField^>());
+            Marshal::StructureToPtr(qryExecOrder, qryExecOrderPtr, false);
             try
             {
-                return _api->ReqQryExecOrder(static_cast<CThostFtdcQryExecOrderField*>(pQryExecOrderPtr.ToPointer()), nRequestID);
+                return _api->ReqQryExecOrder(static_cast<CThostFtdcQryExecOrderField*>(qryExecOrderPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryExecOrderPtr);
+                Marshal::FreeHGlobal(qryExecOrderPtr);
             }
         }
 
-        int TraderApi::ReqQryForQuote(QryForQuoteField^ pQryForQuote, int nRequestID)
+        int TraderApi::ReqQryForQuote(QryForQuoteField^ qryForQuote, int requestID)
         {
-            IntPtr pQryForQuotePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryForQuoteField^>());
-            Marshal::StructureToPtr(pQryForQuote, pQryForQuotePtr, false);
+            IntPtr qryForQuotePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryForQuoteField^>());
+            Marshal::StructureToPtr(qryForQuote, qryForQuotePtr, false);
             try
             {
-                return _api->ReqQryForQuote(static_cast<CThostFtdcQryForQuoteField*>(pQryForQuotePtr.ToPointer()), nRequestID);
+                return _api->ReqQryForQuote(static_cast<CThostFtdcQryForQuoteField*>(qryForQuotePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryForQuotePtr);
+                Marshal::FreeHGlobal(qryForQuotePtr);
             }
         }
 
-        int TraderApi::ReqQryQuote(QryQuoteField^ pQryQuote, int nRequestID)
+        int TraderApi::ReqQryQuote(QryQuoteField^ qryQuote, int requestID)
         {
-            IntPtr pQryQuotePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryQuoteField^>());
-            Marshal::StructureToPtr(pQryQuote, pQryQuotePtr, false);
+            IntPtr qryQuotePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryQuoteField^>());
+            Marshal::StructureToPtr(qryQuote, qryQuotePtr, false);
             try
             {
-                return _api->ReqQryQuote(static_cast<CThostFtdcQryQuoteField*>(pQryQuotePtr.ToPointer()), nRequestID);
+                return _api->ReqQryQuote(static_cast<CThostFtdcQryQuoteField*>(qryQuotePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryQuotePtr);
+                Marshal::FreeHGlobal(qryQuotePtr);
             }
         }
 
-        int TraderApi::ReqQryOptionSelfClose(QryOptionSelfCloseField^ pQryOptionSelfClose, int nRequestID)
+        int TraderApi::ReqQryOptionSelfClose(QryOptionSelfCloseField^ qryOptionSelfClose, int requestID)
         {
-            IntPtr pQryOptionSelfClosePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryOptionSelfCloseField^>());
-            Marshal::StructureToPtr(pQryOptionSelfClose, pQryOptionSelfClosePtr, false);
+            IntPtr qryOptionSelfClosePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryOptionSelfCloseField^>());
+            Marshal::StructureToPtr(qryOptionSelfClose, qryOptionSelfClosePtr, false);
             try
             {
-                return _api->ReqQryOptionSelfClose(static_cast<CThostFtdcQryOptionSelfCloseField*>(pQryOptionSelfClosePtr.ToPointer()), nRequestID);
+                return _api->ReqQryOptionSelfClose(static_cast<CThostFtdcQryOptionSelfCloseField*>(qryOptionSelfClosePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryOptionSelfClosePtr);
+                Marshal::FreeHGlobal(qryOptionSelfClosePtr);
             }
         }
 
-        int TraderApi::ReqQryInvestUnit(QryInvestUnitField^ pQryInvestUnit, int nRequestID)
+        int TraderApi::ReqQryInvestUnit(QryInvestUnitField^ qryInvestUnit, int requestID)
         {
-            IntPtr pQryInvestUnitPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestUnitField^>());
-            Marshal::StructureToPtr(pQryInvestUnit, pQryInvestUnitPtr, false);
+            IntPtr qryInvestUnitPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryInvestUnitField^>());
+            Marshal::StructureToPtr(qryInvestUnit, qryInvestUnitPtr, false);
             try
             {
-                return _api->ReqQryInvestUnit(static_cast<CThostFtdcQryInvestUnitField*>(pQryInvestUnitPtr.ToPointer()), nRequestID);
+                return _api->ReqQryInvestUnit(static_cast<CThostFtdcQryInvestUnitField*>(qryInvestUnitPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryInvestUnitPtr);
+                Marshal::FreeHGlobal(qryInvestUnitPtr);
             }
         }
 
-        int TraderApi::ReqQryCombInstrumentGuard(QryCombInstrumentGuardField^ pQryCombInstrumentGuard, int nRequestID)
+        int TraderApi::ReqQryCombInstrumentGuard(QryCombInstrumentGuardField^ qryCombInstrumentGuard, int requestID)
         {
-            IntPtr pQryCombInstrumentGuardPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryCombInstrumentGuardField^>());
-            Marshal::StructureToPtr(pQryCombInstrumentGuard, pQryCombInstrumentGuardPtr, false);
+            IntPtr qryCombInstrumentGuardPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryCombInstrumentGuardField^>());
+            Marshal::StructureToPtr(qryCombInstrumentGuard, qryCombInstrumentGuardPtr, false);
             try
             {
-                return _api->ReqQryCombInstrumentGuard(static_cast<CThostFtdcQryCombInstrumentGuardField*>(pQryCombInstrumentGuardPtr.ToPointer()), nRequestID);
+                return _api->ReqQryCombInstrumentGuard(static_cast<CThostFtdcQryCombInstrumentGuardField*>(qryCombInstrumentGuardPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryCombInstrumentGuardPtr);
+                Marshal::FreeHGlobal(qryCombInstrumentGuardPtr);
             }
         }
 
-        int TraderApi::ReqQryCombAction(QryCombActionField^ pQryCombAction, int nRequestID)
+        int TraderApi::ReqQryCombAction(QryCombActionField^ qryCombAction, int requestID)
         {
-            IntPtr pQryCombActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryCombActionField^>());
-            Marshal::StructureToPtr(pQryCombAction, pQryCombActionPtr, false);
+            IntPtr qryCombActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryCombActionField^>());
+            Marshal::StructureToPtr(qryCombAction, qryCombActionPtr, false);
             try
             {
-                return _api->ReqQryCombAction(static_cast<CThostFtdcQryCombActionField*>(pQryCombActionPtr.ToPointer()), nRequestID);
+                return _api->ReqQryCombAction(static_cast<CThostFtdcQryCombActionField*>(qryCombActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryCombActionPtr);
+                Marshal::FreeHGlobal(qryCombActionPtr);
             }
         }
 
-        int TraderApi::ReqQryTransferSerial(QryTransferSerialField^ pQryTransferSerial, int nRequestID)
+        int TraderApi::ReqQryTransferSerial(QryTransferSerialField^ qryTransferSerial, int requestID)
         {
-            IntPtr pQryTransferSerialPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTransferSerialField^>());
-            Marshal::StructureToPtr(pQryTransferSerial, pQryTransferSerialPtr, false);
+            IntPtr qryTransferSerialPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTransferSerialField^>());
+            Marshal::StructureToPtr(qryTransferSerial, qryTransferSerialPtr, false);
             try
             {
-                return _api->ReqQryTransferSerial(static_cast<CThostFtdcQryTransferSerialField*>(pQryTransferSerialPtr.ToPointer()), nRequestID);
+                return _api->ReqQryTransferSerial(static_cast<CThostFtdcQryTransferSerialField*>(qryTransferSerialPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryTransferSerialPtr);
+                Marshal::FreeHGlobal(qryTransferSerialPtr);
             }
         }
 
-        int TraderApi::ReqQryAccountregister(QryAccountregisterField^ pQryAccountregister, int nRequestID)
+        int TraderApi::ReqQryAccountregister(QryAccountregisterField^ qryAccountregister, int requestID)
         {
-            IntPtr pQryAccountregisterPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryAccountregisterField^>());
-            Marshal::StructureToPtr(pQryAccountregister, pQryAccountregisterPtr, false);
+            IntPtr qryAccountregisterPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryAccountregisterField^>());
+            Marshal::StructureToPtr(qryAccountregister, qryAccountregisterPtr, false);
             try
             {
-                return _api->ReqQryAccountregister(static_cast<CThostFtdcQryAccountregisterField*>(pQryAccountregisterPtr.ToPointer()), nRequestID);
+                return _api->ReqQryAccountregister(static_cast<CThostFtdcQryAccountregisterField*>(qryAccountregisterPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryAccountregisterPtr);
+                Marshal::FreeHGlobal(qryAccountregisterPtr);
             }
         }
 
-        int TraderApi::ReqQryContractBank(QryContractBankField^ pQryContractBank, int nRequestID)
+        int TraderApi::ReqQryContractBank(QryContractBankField^ qryContractBank, int requestID)
         {
-            IntPtr pQryContractBankPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryContractBankField^>());
-            Marshal::StructureToPtr(pQryContractBank, pQryContractBankPtr, false);
+            IntPtr qryContractBankPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryContractBankField^>());
+            Marshal::StructureToPtr(qryContractBank, qryContractBankPtr, false);
             try
             {
-                return _api->ReqQryContractBank(static_cast<CThostFtdcQryContractBankField*>(pQryContractBankPtr.ToPointer()), nRequestID);
+                return _api->ReqQryContractBank(static_cast<CThostFtdcQryContractBankField*>(qryContractBankPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryContractBankPtr);
+                Marshal::FreeHGlobal(qryContractBankPtr);
             }
         }
 
-        int TraderApi::ReqQryParkedOrder(QryParkedOrderField^ pQryParkedOrder, int nRequestID)
+        int TraderApi::ReqQryParkedOrder(QryParkedOrderField^ qryParkedOrder, int requestID)
         {
-            IntPtr pQryParkedOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryParkedOrderField^>());
-            Marshal::StructureToPtr(pQryParkedOrder, pQryParkedOrderPtr, false);
+            IntPtr qryParkedOrderPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryParkedOrderField^>());
+            Marshal::StructureToPtr(qryParkedOrder, qryParkedOrderPtr, false);
             try
             {
-                return _api->ReqQryParkedOrder(static_cast<CThostFtdcQryParkedOrderField*>(pQryParkedOrderPtr.ToPointer()), nRequestID);
+                return _api->ReqQryParkedOrder(static_cast<CThostFtdcQryParkedOrderField*>(qryParkedOrderPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryParkedOrderPtr);
+                Marshal::FreeHGlobal(qryParkedOrderPtr);
             }
         }
 
-        int TraderApi::ReqQryParkedOrderAction(QryParkedOrderActionField^ pQryParkedOrderAction, int nRequestID)
+        int TraderApi::ReqQryParkedOrderAction(QryParkedOrderActionField^ qryParkedOrderAction, int requestID)
         {
-            IntPtr pQryParkedOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryParkedOrderActionField^>());
-            Marshal::StructureToPtr(pQryParkedOrderAction, pQryParkedOrderActionPtr, false);
+            IntPtr qryParkedOrderActionPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryParkedOrderActionField^>());
+            Marshal::StructureToPtr(qryParkedOrderAction, qryParkedOrderActionPtr, false);
             try
             {
-                return _api->ReqQryParkedOrderAction(static_cast<CThostFtdcQryParkedOrderActionField*>(pQryParkedOrderActionPtr.ToPointer()), nRequestID);
+                return _api->ReqQryParkedOrderAction(static_cast<CThostFtdcQryParkedOrderActionField*>(qryParkedOrderActionPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryParkedOrderActionPtr);
+                Marshal::FreeHGlobal(qryParkedOrderActionPtr);
             }
         }
 
-        int TraderApi::ReqQryTradingNotice(QryTradingNoticeField^ pQryTradingNotice, int nRequestID)
+        int TraderApi::ReqQryTradingNotice(QryTradingNoticeField^ qryTradingNotice, int requestID)
         {
-            IntPtr pQryTradingNoticePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradingNoticeField^>());
-            Marshal::StructureToPtr(pQryTradingNotice, pQryTradingNoticePtr, false);
+            IntPtr qryTradingNoticePtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryTradingNoticeField^>());
+            Marshal::StructureToPtr(qryTradingNotice, qryTradingNoticePtr, false);
             try
             {
-                return _api->ReqQryTradingNotice(static_cast<CThostFtdcQryTradingNoticeField*>(pQryTradingNoticePtr.ToPointer()), nRequestID);
+                return _api->ReqQryTradingNotice(static_cast<CThostFtdcQryTradingNoticeField*>(qryTradingNoticePtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryTradingNoticePtr);
+                Marshal::FreeHGlobal(qryTradingNoticePtr);
             }
         }
 
-        int TraderApi::ReqQryBrokerTradingParams(QryBrokerTradingParamsField^ pQryBrokerTradingParams, int nRequestID)
+        int TraderApi::ReqQryBrokerTradingParams(QryBrokerTradingParamsField^ qryBrokerTradingParams, int requestID)
         {
-            IntPtr pQryBrokerTradingParamsPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryBrokerTradingParamsField^>());
-            Marshal::StructureToPtr(pQryBrokerTradingParams, pQryBrokerTradingParamsPtr, false);
+            IntPtr qryBrokerTradingParamsPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryBrokerTradingParamsField^>());
+            Marshal::StructureToPtr(qryBrokerTradingParams, qryBrokerTradingParamsPtr, false);
             try
             {
-                return _api->ReqQryBrokerTradingParams(static_cast<CThostFtdcQryBrokerTradingParamsField*>(pQryBrokerTradingParamsPtr.ToPointer()), nRequestID);
+                return _api->ReqQryBrokerTradingParams(static_cast<CThostFtdcQryBrokerTradingParamsField*>(qryBrokerTradingParamsPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryBrokerTradingParamsPtr);
+                Marshal::FreeHGlobal(qryBrokerTradingParamsPtr);
             }
         }
 
-        int TraderApi::ReqQryBrokerTradingAlgos(QryBrokerTradingAlgosField^ pQryBrokerTradingAlgos, int nRequestID)
+        int TraderApi::ReqQryBrokerTradingAlgos(QryBrokerTradingAlgosField^ qryBrokerTradingAlgos, int requestID)
         {
-            IntPtr pQryBrokerTradingAlgosPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryBrokerTradingAlgosField^>());
-            Marshal::StructureToPtr(pQryBrokerTradingAlgos, pQryBrokerTradingAlgosPtr, false);
+            IntPtr qryBrokerTradingAlgosPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryBrokerTradingAlgosField^>());
+            Marshal::StructureToPtr(qryBrokerTradingAlgos, qryBrokerTradingAlgosPtr, false);
             try
             {
-                return _api->ReqQryBrokerTradingAlgos(static_cast<CThostFtdcQryBrokerTradingAlgosField*>(pQryBrokerTradingAlgosPtr.ToPointer()), nRequestID);
+                return _api->ReqQryBrokerTradingAlgos(static_cast<CThostFtdcQryBrokerTradingAlgosField*>(qryBrokerTradingAlgosPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryBrokerTradingAlgosPtr);
+                Marshal::FreeHGlobal(qryBrokerTradingAlgosPtr);
             }
         }
 
-        int TraderApi::ReqQueryCFMMCTradingAccountToken(QueryCFMMCTradingAccountTokenField^ pQueryCFMMCTradingAccountToken, int nRequestID)
+        int TraderApi::ReqQueryCFMMCTradingAccountToken(QueryCFMMCTradingAccountTokenField^ queryCFMMCTradingAccountToken, int requestID)
         {
-            IntPtr pQueryCFMMCTradingAccountTokenPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QueryCFMMCTradingAccountTokenField^>());
-            Marshal::StructureToPtr(pQueryCFMMCTradingAccountToken, pQueryCFMMCTradingAccountTokenPtr, false);
+            IntPtr queryCFMMCTradingAccountTokenPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QueryCFMMCTradingAccountTokenField^>());
+            Marshal::StructureToPtr(queryCFMMCTradingAccountToken, queryCFMMCTradingAccountTokenPtr, false);
             try
             {
-                return _api->ReqQueryCFMMCTradingAccountToken(static_cast<CThostFtdcQueryCFMMCTradingAccountTokenField*>(pQueryCFMMCTradingAccountTokenPtr.ToPointer()), nRequestID);
+                return _api->ReqQueryCFMMCTradingAccountToken(static_cast<CThostFtdcQueryCFMMCTradingAccountTokenField*>(queryCFMMCTradingAccountTokenPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQueryCFMMCTradingAccountTokenPtr);
+                Marshal::FreeHGlobal(queryCFMMCTradingAccountTokenPtr);
             }
         }
 
-        int TraderApi::ReqFromBankToFutureByFuture(ReqTransferField^ pReqTransfer, int nRequestID)
+        int TraderApi::ReqFromBankToFutureByFuture(ReqTransferField^ reqTransfer, int requestID)
         {
-            IntPtr pReqTransferPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqTransferField^>());
-            Marshal::StructureToPtr(pReqTransfer, pReqTransferPtr, false);
+            IntPtr reqTransferPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqTransferField^>());
+            Marshal::StructureToPtr(reqTransfer, reqTransferPtr, false);
             try
             {
-                return _api->ReqFromBankToFutureByFuture(static_cast<CThostFtdcReqTransferField*>(pReqTransferPtr.ToPointer()), nRequestID);
+                return _api->ReqFromBankToFutureByFuture(static_cast<CThostFtdcReqTransferField*>(reqTransferPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqTransferPtr);
+                Marshal::FreeHGlobal(reqTransferPtr);
             }
         }
 
-        int TraderApi::ReqFromFutureToBankByFuture(ReqTransferField^ pReqTransfer, int nRequestID)
+        int TraderApi::ReqFromFutureToBankByFuture(ReqTransferField^ reqTransfer, int requestID)
         {
-            IntPtr pReqTransferPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqTransferField^>());
-            Marshal::StructureToPtr(pReqTransfer, pReqTransferPtr, false);
+            IntPtr reqTransferPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqTransferField^>());
+            Marshal::StructureToPtr(reqTransfer, reqTransferPtr, false);
             try
             {
-                return _api->ReqFromFutureToBankByFuture(static_cast<CThostFtdcReqTransferField*>(pReqTransferPtr.ToPointer()), nRequestID);
+                return _api->ReqFromFutureToBankByFuture(static_cast<CThostFtdcReqTransferField*>(reqTransferPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqTransferPtr);
+                Marshal::FreeHGlobal(reqTransferPtr);
             }
         }
 
-        int TraderApi::ReqQueryBankAccountMoneyByFuture(ReqQueryAccountField^ pReqQueryAccount, int nRequestID)
+        int TraderApi::ReqQueryBankAccountMoneyByFuture(ReqQueryAccountField^ reqQueryAccount, int requestID)
         {
-            IntPtr pReqQueryAccountPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqQueryAccountField^>());
-            Marshal::StructureToPtr(pReqQueryAccount, pReqQueryAccountPtr, false);
+            IntPtr reqQueryAccountPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqQueryAccountField^>());
+            Marshal::StructureToPtr(reqQueryAccount, reqQueryAccountPtr, false);
             try
             {
-                return _api->ReqQueryBankAccountMoneyByFuture(static_cast<CThostFtdcReqQueryAccountField*>(pReqQueryAccountPtr.ToPointer()), nRequestID);
+                return _api->ReqQueryBankAccountMoneyByFuture(static_cast<CThostFtdcReqQueryAccountField*>(reqQueryAccountPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqQueryAccountPtr);
+                Marshal::FreeHGlobal(reqQueryAccountPtr);
             }
         }
 

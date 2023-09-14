@@ -90,85 +90,85 @@ namespace Ctp
             return gcnew String(_api->GetTradingDay());
         }
 
-        void MarketApi::RegisterFront(String^ pszFrontAddress)
+        void MarketApi::RegisterFront(String^ frontAddress)
         {
-            IntPtr pszFrontAddressPtr = Marshal::StringToHGlobalAnsi(pszFrontAddress);
+            IntPtr frontAddressPtr = Marshal::StringToHGlobalAnsi(frontAddress);
             try
             {
-                return _api->RegisterFront(static_cast<char*>(pszFrontAddressPtr.ToPointer()));
+                return _api->RegisterFront(static_cast<char*>(frontAddressPtr.ToPointer()));
             }
             finally
             {
-                Marshal::FreeHGlobal(pszFrontAddressPtr);
+                Marshal::FreeHGlobal(frontAddressPtr);
             }
         }
 
-        void MarketApi::RegisterNameServer(String^ pszNsAddress)
+        void MarketApi::RegisterNameServer(String^ nsAddress)
         {
-            IntPtr pszNsAddressPtr = Marshal::StringToHGlobalAnsi(pszNsAddress);
+            IntPtr nsAddressPtr = Marshal::StringToHGlobalAnsi(nsAddress);
             try
             {
-                return _api->RegisterNameServer(static_cast<char*>(pszNsAddressPtr.ToPointer()));
+                return _api->RegisterNameServer(static_cast<char*>(nsAddressPtr.ToPointer()));
             }
             finally
             {
-                Marshal::FreeHGlobal(pszNsAddressPtr);
+                Marshal::FreeHGlobal(nsAddressPtr);
             }
         }
 
-        void MarketApi::RegisterFensUserInfo(FensUserInfoField^ pFensUserInfo)
+        void MarketApi::RegisterFensUserInfo(FensUserInfoField^ fensUserInfo)
         {
-            IntPtr pFensUserInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<FensUserInfoField^>());
-            Marshal::StructureToPtr(pFensUserInfo, pFensUserInfoPtr, false);
+            IntPtr fensUserInfoPtr = Marshal::AllocHGlobal(Marshal::SizeOf<FensUserInfoField^>());
+            Marshal::StructureToPtr(fensUserInfo, fensUserInfoPtr, false);
             try
             {
-                return _api->RegisterFensUserInfo(static_cast<CThostFtdcFensUserInfoField*>(pFensUserInfoPtr.ToPointer()));
+                return _api->RegisterFensUserInfo(static_cast<CThostFtdcFensUserInfoField*>(fensUserInfoPtr.ToPointer()));
             }
             finally
             {
-                Marshal::FreeHGlobal(pFensUserInfoPtr);
+                Marshal::FreeHGlobal(fensUserInfoPtr);
             }
         }
 
-        int MarketApi::ReqUserLogin(ReqUserLoginField^ pReqUserLoginField, int nRequestID)
+        int MarketApi::ReqUserLogin(ReqUserLoginField^ reqUserLoginField, int requestID)
         {
-            IntPtr pReqUserLoginFieldPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginField^>());
-            Marshal::StructureToPtr(pReqUserLoginField, pReqUserLoginFieldPtr, false);
+            IntPtr reqUserLoginFieldPtr = Marshal::AllocHGlobal(Marshal::SizeOf<ReqUserLoginField^>());
+            Marshal::StructureToPtr(reqUserLoginField, reqUserLoginFieldPtr, false);
             try
             {
-                return _api->ReqUserLogin(static_cast<CThostFtdcReqUserLoginField*>(pReqUserLoginFieldPtr.ToPointer()), nRequestID);
+                return _api->ReqUserLogin(static_cast<CThostFtdcReqUserLoginField*>(reqUserLoginFieldPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pReqUserLoginFieldPtr);
+                Marshal::FreeHGlobal(reqUserLoginFieldPtr);
             }
         }
 
-        int MarketApi::ReqUserLogout(UserLogoutField^ pUserLogout, int nRequestID)
+        int MarketApi::ReqUserLogout(UserLogoutField^ userLogout, int requestID)
         {
-            IntPtr pUserLogoutPtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserLogoutField^>());
-            Marshal::StructureToPtr(pUserLogout, pUserLogoutPtr, false);
+            IntPtr userLogoutPtr = Marshal::AllocHGlobal(Marshal::SizeOf<UserLogoutField^>());
+            Marshal::StructureToPtr(userLogout, userLogoutPtr, false);
             try
             {
-                return _api->ReqUserLogout(static_cast<CThostFtdcUserLogoutField*>(pUserLogoutPtr.ToPointer()), nRequestID);
+                return _api->ReqUserLogout(static_cast<CThostFtdcUserLogoutField*>(userLogoutPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pUserLogoutPtr);
+                Marshal::FreeHGlobal(userLogoutPtr);
             }
         }
 
-        int MarketApi::ReqQryMulticastInstrument(QryMulticastInstrumentField^ pQryMulticastInstrument, int nRequestID)
+        int MarketApi::ReqQryMulticastInstrument(QryMulticastInstrumentField^ qryMulticastInstrument, int requestID)
         {
-            IntPtr pQryMulticastInstrumentPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryMulticastInstrumentField^>());
-            Marshal::StructureToPtr(pQryMulticastInstrument, pQryMulticastInstrumentPtr, false);
+            IntPtr qryMulticastInstrumentPtr = Marshal::AllocHGlobal(Marshal::SizeOf<QryMulticastInstrumentField^>());
+            Marshal::StructureToPtr(qryMulticastInstrument, qryMulticastInstrumentPtr, false);
             try
             {
-                return _api->ReqQryMulticastInstrument(static_cast<CThostFtdcQryMulticastInstrumentField*>(pQryMulticastInstrumentPtr.ToPointer()), nRequestID);
+                return _api->ReqQryMulticastInstrument(static_cast<CThostFtdcQryMulticastInstrumentField*>(qryMulticastInstrumentPtr.ToPointer()), requestID);
             }
             finally
             {
-                Marshal::FreeHGlobal(pQryMulticastInstrumentPtr);
+                Marshal::FreeHGlobal(qryMulticastInstrumentPtr);
             }
         }
 

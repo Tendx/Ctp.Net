@@ -44,291 +44,291 @@ namespace Ctp
             String^ GetTradingDay();
 
             /// <summary>注册前置机网络地址</summary>
-            /// <param name="pszFrontAddress">前置机网络地址。</param>
+            /// <param name="frontAddress">前置机网络地址。</param>
             /// <remarks>网络地址的格式为：“protocol://ipaddress:port”，如：”tcp://127.0.0.1:17001”。</remarks>
             /// <remarks>“tcp”代表传输协议，“127.0.0.1”代表服务器地址。”17001”代表服务器端口号。</remarks>
-            void RegisterFront(String^ pszFrontAddress);
+            void RegisterFront(String^ frontAddress);
 
             /// <summary>注册名字服务器网络地址</summary>
-            /// <param name="pszNsAddress">名字服务器网络地址。</param>
+            /// <param name="nsAddress">名字服务器网络地址。</param>
             /// <remarks>网络地址的格式为：“protocol://ipaddress:port”，如：”tcp://127.0.0.1:12001”。</remarks>
             /// <remarks>“tcp”代表传输协议，“127.0.0.1”代表服务器地址。”12001”代表服务器端口号。</remarks>
             /// <remarks>RegisterNameServer优先于RegisterFront</remarks>
-            void RegisterNameServer(String^ pszNsAddress);
+            void RegisterNameServer(String^ nsAddress);
 
             /// <summary>注册名字服务器用户信息</summary>
-            /// <param name="pFensUserInfo">用户信息。</param>
-            void RegisterFensUserInfo(FensUserInfoField^ pFensUserInfo);
+            /// <param name="fensUserInfo">用户信息。</param>
+            void RegisterFensUserInfo(FensUserInfoField^ fensUserInfo);
 
             /// <summary>订阅私有流。</summary>
-            /// <param name="nResumeType">私有流重传方式</param>
+            /// <param name="resumeType">私有流重传方式</param>
             /// THOST_TERT_RESTART:从本交易日开始重传
             /// THOST_TERT_RESUME:从上次收到的续传
             /// THOST_TERT_QUICK:只传送登录后私有流的内容
             /// <remarks>该方法要在Init方法前调用。若不调用则不会收到私有流的数据。</remarks>
-            void SubscribePrivateTopic(RESUME_TYPE nResumeType);
+            void SubscribePrivateTopic(RESUME_TYPE resumeType);
 
             /// <summary>订阅公共流。</summary>
-            /// <param name="nResumeType">公共流重传方式</param>
+            /// <param name="resumeType">公共流重传方式</param>
             /// THOST_TERT_RESTART:从本交易日开始重传
             /// THOST_TERT_RESUME:从上次收到的续传
             /// THOST_TERT_QUICK:只传送登录后公共流的内容
             /// <remarks>该方法要在Init方法前调用。若不调用则不会收到公共流的数据。</remarks>
-            void SubscribePublicTopic(RESUME_TYPE nResumeType);
+            void SubscribePublicTopic(RESUME_TYPE resumeType);
 
             /// <summary>客户端认证请求</summary>
-            int ReqAuthenticate(ReqAuthenticateField^ pReqAuthenticateField, int nRequestID);
+            int ReqAuthenticate(ReqAuthenticateField^ reqAuthenticateField, int requestID);
 
             /// <summary>注册用户终端信息，用于中继服务器多连接模式</summary>
             /// 需要在终端认证成功后，用户登录前调用该接口
-            int RegisterUserSystemInfo(UserSystemInfoField^ pUserSystemInfo);
+            int RegisterUserSystemInfo(UserSystemInfoField^ userSystemInfo);
 
             /// <summary>上报用户终端信息，用于中继服务器操作员登录模式</summary>
             /// 操作员登录后，可以多次调用该接口上报客户信息
-            int SubmitUserSystemInfo(UserSystemInfoField^ pUserSystemInfo);
+            int SubmitUserSystemInfo(UserSystemInfoField^ userSystemInfo);
 
             /// <summary>用户登录请求</summary>
-            int ReqUserLogin(ReqUserLoginField^ pReqUserLoginField, int nRequestID);
+            int ReqUserLogin(ReqUserLoginField^ reqUserLoginField, int requestID);
 
             /// <summary>登出请求</summary>
-            int ReqUserLogout(UserLogoutField^ pUserLogout, int nRequestID);
+            int ReqUserLogout(UserLogoutField^ userLogout, int requestID);
 
             /// <summary>用户口令更新请求</summary>
-            int ReqUserPasswordUpdate(UserPasswordUpdateField^ pUserPasswordUpdate, int nRequestID);
+            int ReqUserPasswordUpdate(UserPasswordUpdateField^ userPasswordUpdate, int requestID);
 
             /// <summary>资金账户口令更新请求</summary>
-            int ReqTradingAccountPasswordUpdate(TradingAccountPasswordUpdateField^ pTradingAccountPasswordUpdate, int nRequestID);
+            int ReqTradingAccountPasswordUpdate(TradingAccountPasswordUpdateField^ tradingAccountPasswordUpdate, int requestID);
 
             /// <summary>查询用户当前支持的认证模式</summary>
-            int ReqUserAuthMethod(ReqUserAuthMethodField^ pReqUserAuthMethod, int nRequestID);
+            int ReqUserAuthMethod(ReqUserAuthMethodField^ reqUserAuthMethod, int requestID);
 
             /// <summary>用户发出获取图形验证码请求</summary>
-            int ReqGenUserCaptcha(ReqGenUserCaptchaField^ pReqGenUserCaptcha, int nRequestID);
+            int ReqGenUserCaptcha(ReqGenUserCaptchaField^ reqGenUserCaptcha, int requestID);
 
             /// <summary>用户发出获取短信验证码请求</summary>
-            int ReqGenUserText(ReqGenUserTextField^ pReqGenUserText, int nRequestID);
+            int ReqGenUserText(ReqGenUserTextField^ reqGenUserText, int requestID);
 
             /// <summary>用户发出带有图片验证码的登陆请求</summary>
-            int ReqUserLoginWithCaptcha(ReqUserLoginWithCaptchaField^ pReqUserLoginWithCaptcha, int nRequestID);
+            int ReqUserLoginWithCaptcha(ReqUserLoginWithCaptchaField^ reqUserLoginWithCaptcha, int requestID);
 
             /// <summary>用户发出带有短信验证码的登陆请求</summary>
-            int ReqUserLoginWithText(ReqUserLoginWithTextField^ pReqUserLoginWithText, int nRequestID);
+            int ReqUserLoginWithText(ReqUserLoginWithTextField^ reqUserLoginWithText, int requestID);
 
             /// <summary>用户发出带有动态口令的登陆请求</summary>
-            int ReqUserLoginWithOTP(ReqUserLoginWithOTPField^ pReqUserLoginWithOTP, int nRequestID);
+            int ReqUserLoginWithOTP(ReqUserLoginWithOTPField^ reqUserLoginWithOTP, int requestID);
 
             /// <summary>报单录入请求</summary>
-            int ReqOrderInsert(InputOrderField^ pInputOrder, int nRequestID);
+            int ReqOrderInsert(InputOrderField^ inputOrder, int requestID);
 
             /// <summary>预埋单录入请求</summary>
-            int ReqParkedOrderInsert(ParkedOrderField^ pParkedOrder, int nRequestID);
+            int ReqParkedOrderInsert(ParkedOrderField^ parkedOrder, int requestID);
 
             /// <summary>预埋撤单录入请求</summary>
-            int ReqParkedOrderAction(ParkedOrderActionField^ pParkedOrderAction, int nRequestID);
+            int ReqParkedOrderAction(ParkedOrderActionField^ parkedOrderAction, int requestID);
 
             /// <summary>报单操作请求</summary>
-            int ReqOrderAction(InputOrderActionField^ pInputOrderAction, int nRequestID);
+            int ReqOrderAction(InputOrderActionField^ inputOrderAction, int requestID);
 
             /// <summary>查询最大报单数量请求</summary>
-            int ReqQueryMaxOrderVolume(QueryMaxOrderVolumeField^ pQueryMaxOrderVolume, int nRequestID);
+            int ReqQueryMaxOrderVolume(QueryMaxOrderVolumeField^ queryMaxOrderVolume, int requestID);
 
             /// <summary>投资者结算结果确认</summary>
-            int ReqSettlementInfoConfirm(SettlementInfoConfirmField^ pSettlementInfoConfirm, int nRequestID);
+            int ReqSettlementInfoConfirm(SettlementInfoConfirmField^ settlementInfoConfirm, int requestID);
 
             /// <summary>请求删除预埋单</summary>
-            int ReqRemoveParkedOrder(RemoveParkedOrderField^ pRemoveParkedOrder, int nRequestID);
+            int ReqRemoveParkedOrder(RemoveParkedOrderField^ removeParkedOrder, int requestID);
 
             /// <summary>请求删除预埋撤单</summary>
-            int ReqRemoveParkedOrderAction(RemoveParkedOrderActionField^ pRemoveParkedOrderAction, int nRequestID);
+            int ReqRemoveParkedOrderAction(RemoveParkedOrderActionField^ removeParkedOrderAction, int requestID);
 
             /// <summary>执行宣告录入请求</summary>
-            int ReqExecOrderInsert(InputExecOrderField^ pInputExecOrder, int nRequestID);
+            int ReqExecOrderInsert(InputExecOrderField^ inputExecOrder, int requestID);
 
             /// <summary>执行宣告操作请求</summary>
-            int ReqExecOrderAction(InputExecOrderActionField^ pInputExecOrderAction, int nRequestID);
+            int ReqExecOrderAction(InputExecOrderActionField^ inputExecOrderAction, int requestID);
 
             /// <summary>询价录入请求</summary>
-            int ReqForQuoteInsert(InputForQuoteField^ pInputForQuote, int nRequestID);
+            int ReqForQuoteInsert(InputForQuoteField^ inputForQuote, int requestID);
 
             /// <summary>报价录入请求</summary>
-            int ReqQuoteInsert(InputQuoteField^ pInputQuote, int nRequestID);
+            int ReqQuoteInsert(InputQuoteField^ inputQuote, int requestID);
 
             /// <summary>报价操作请求</summary>
-            int ReqQuoteAction(InputQuoteActionField^ pInputQuoteAction, int nRequestID);
+            int ReqQuoteAction(InputQuoteActionField^ inputQuoteAction, int requestID);
 
             /// <summary>批量报单操作请求</summary>
-            int ReqBatchOrderAction(InputBatchOrderActionField^ pInputBatchOrderAction, int nRequestID);
+            int ReqBatchOrderAction(InputBatchOrderActionField^ inputBatchOrderAction, int requestID);
 
             /// <summary>期权自对冲录入请求</summary>
-            int ReqOptionSelfCloseInsert(InputOptionSelfCloseField^ pInputOptionSelfClose, int nRequestID);
+            int ReqOptionSelfCloseInsert(InputOptionSelfCloseField^ inputOptionSelfClose, int requestID);
 
             /// <summary>期权自对冲操作请求</summary>
-            int ReqOptionSelfCloseAction(InputOptionSelfCloseActionField^ pInputOptionSelfCloseAction, int nRequestID);
+            int ReqOptionSelfCloseAction(InputOptionSelfCloseActionField^ inputOptionSelfCloseAction, int requestID);
 
             /// <summary>申请组合录入请求</summary>
-            int ReqCombActionInsert(InputCombActionField^ pInputCombAction, int nRequestID);
+            int ReqCombActionInsert(InputCombActionField^ inputCombAction, int requestID);
 
             /// <summary>请求查询报单</summary>
-            int ReqQryOrder(QryOrderField^ pQryOrder, int nRequestID);
+            int ReqQryOrder(QryOrderField^ qryOrder, int requestID);
 
             /// <summary>请求查询成交</summary>
-            int ReqQryTrade(QryTradeField^ pQryTrade, int nRequestID);
+            int ReqQryTrade(QryTradeField^ qryTrade, int requestID);
 
             /// <summary>请求查询投资者持仓</summary>
-            int ReqQryInvestorPosition(QryInvestorPositionField^ pQryInvestorPosition, int nRequestID);
+            int ReqQryInvestorPosition(QryInvestorPositionField^ qryInvestorPosition, int requestID);
 
             /// <summary>请求查询资金账户</summary>
-            int ReqQryTradingAccount(QryTradingAccountField^ pQryTradingAccount, int nRequestID);
+            int ReqQryTradingAccount(QryTradingAccountField^ qryTradingAccount, int requestID);
 
             /// <summary>请求查询投资者</summary>
-            int ReqQryInvestor(QryInvestorField^ pQryInvestor, int nRequestID);
+            int ReqQryInvestor(QryInvestorField^ qryInvestor, int requestID);
 
             /// <summary>请求查询交易编码</summary>
-            int ReqQryTradingCode(QryTradingCodeField^ pQryTradingCode, int nRequestID);
+            int ReqQryTradingCode(QryTradingCodeField^ qryTradingCode, int requestID);
 
             /// <summary>请求查询合约保证金率</summary>
-            int ReqQryInstrumentMarginRate(QryInstrumentMarginRateField^ pQryInstrumentMarginRate, int nRequestID);
+            int ReqQryInstrumentMarginRate(QryInstrumentMarginRateField^ qryInstrumentMarginRate, int requestID);
 
             /// <summary>请求查询合约手续费率</summary>
-            int ReqQryInstrumentCommissionRate(QryInstrumentCommissionRateField^ pQryInstrumentCommissionRate, int nRequestID);
+            int ReqQryInstrumentCommissionRate(QryInstrumentCommissionRateField^ qryInstrumentCommissionRate, int requestID);
 
             /// <summary>请求查询交易所</summary>
-            int ReqQryExchange(QryExchangeField^ pQryExchange, int nRequestID);
+            int ReqQryExchange(QryExchangeField^ qryExchange, int requestID);
 
             /// <summary>请求查询产品</summary>
-            int ReqQryProduct(QryProductField^ pQryProduct, int nRequestID);
+            int ReqQryProduct(QryProductField^ qryProduct, int requestID);
 
             /// <summary>请求查询合约</summary>
-            int ReqQryInstrument(QryInstrumentField^ pQryInstrument, int nRequestID);
+            int ReqQryInstrument(QryInstrumentField^ qryInstrument, int requestID);
 
             /// <summary>请求查询行情</summary>
-            int ReqQryDepthMarketData(QryDepthMarketDataField^ pQryDepthMarketData, int nRequestID);
+            int ReqQryDepthMarketData(QryDepthMarketDataField^ qryDepthMarketData, int requestID);
 
             /// <summary>请求查询投资者结算结果</summary>
-            int ReqQrySettlementInfo(QrySettlementInfoField^ pQrySettlementInfo, int nRequestID);
+            int ReqQrySettlementInfo(QrySettlementInfoField^ qrySettlementInfo, int requestID);
 
             /// <summary>请求查询转帐银行</summary>
-            int ReqQryTransferBank(QryTransferBankField^ pQryTransferBank, int nRequestID);
+            int ReqQryTransferBank(QryTransferBankField^ qryTransferBank, int requestID);
 
             /// <summary>请求查询投资者持仓明细</summary>
-            int ReqQryInvestorPositionDetail(QryInvestorPositionDetailField^ pQryInvestorPositionDetail, int nRequestID);
+            int ReqQryInvestorPositionDetail(QryInvestorPositionDetailField^ qryInvestorPositionDetail, int requestID);
 
             /// <summary>请求查询客户通知</summary>
-            int ReqQryNotice(QryNoticeField^ pQryNotice, int nRequestID);
+            int ReqQryNotice(QryNoticeField^ qryNotice, int requestID);
 
             /// <summary>请求查询结算信息确认</summary>
-            int ReqQrySettlementInfoConfirm(QrySettlementInfoConfirmField^ pQrySettlementInfoConfirm, int nRequestID);
+            int ReqQrySettlementInfoConfirm(QrySettlementInfoConfirmField^ qrySettlementInfoConfirm, int requestID);
 
             /// <summary>请求查询投资者持仓明细</summary>
-            int ReqQryInvestorPositionCombineDetail(QryInvestorPositionCombineDetailField^ pQryInvestorPositionCombineDetail, int nRequestID);
+            int ReqQryInvestorPositionCombineDetail(QryInvestorPositionCombineDetailField^ qryInvestorPositionCombineDetail, int requestID);
 
             /// <summary>请求查询保证金监管系统经纪公司资金账户密钥</summary>
-            int ReqQryCFMMCTradingAccountKey(QryCFMMCTradingAccountKeyField^ pQryCFMMCTradingAccountKey, int nRequestID);
+            int ReqQryCFMMCTradingAccountKey(QryCFMMCTradingAccountKeyField^ qryCFMMCTradingAccountKey, int requestID);
 
             /// <summary>请求查询仓单折抵信息</summary>
-            int ReqQryEWarrantOffset(QryEWarrantOffsetField^ pQryEWarrantOffset, int nRequestID);
+            int ReqQryEWarrantOffset(QryEWarrantOffsetField^ qryEWarrantOffset, int requestID);
 
             /// <summary>请求查询投资者品种/跨品种保证金</summary>
-            int ReqQryInvestorProductGroupMargin(QryInvestorProductGroupMarginField^ pQryInvestorProductGroupMargin, int nRequestID);
+            int ReqQryInvestorProductGroupMargin(QryInvestorProductGroupMarginField^ qryInvestorProductGroupMargin, int requestID);
 
             /// <summary>请求查询交易所保证金率</summary>
-            int ReqQryExchangeMarginRate(QryExchangeMarginRateField^ pQryExchangeMarginRate, int nRequestID);
+            int ReqQryExchangeMarginRate(QryExchangeMarginRateField^ qryExchangeMarginRate, int requestID);
 
             /// <summary>请求查询交易所调整保证金率</summary>
-            int ReqQryExchangeMarginRateAdjust(QryExchangeMarginRateAdjustField^ pQryExchangeMarginRateAdjust, int nRequestID);
+            int ReqQryExchangeMarginRateAdjust(QryExchangeMarginRateAdjustField^ qryExchangeMarginRateAdjust, int requestID);
 
             /// <summary>请求查询汇率</summary>
-            int ReqQryExchangeRate(QryExchangeRateField^ pQryExchangeRate, int nRequestID);
+            int ReqQryExchangeRate(QryExchangeRateField^ qryExchangeRate, int requestID);
 
             /// <summary>请求查询二级代理操作员银期权限</summary>
-            int ReqQrySecAgentACIDMap(QrySecAgentACIDMapField^ pQrySecAgentACIDMap, int nRequestID);
+            int ReqQrySecAgentACIDMap(QrySecAgentACIDMapField^ qrySecAgentACIDMap, int requestID);
 
             /// <summary>请求查询产品报价汇率</summary>
-            int ReqQryProductExchRate(QryProductExchRateField^ pQryProductExchRate, int nRequestID);
+            int ReqQryProductExchRate(QryProductExchRateField^ qryProductExchRate, int requestID);
 
             /// <summary>请求查询产品组</summary>
-            int ReqQryProductGroup(QryProductGroupField^ pQryProductGroup, int nRequestID);
+            int ReqQryProductGroup(QryProductGroupField^ qryProductGroup, int requestID);
 
             /// <summary>请求查询做市商合约手续费率</summary>
-            int ReqQryMMInstrumentCommissionRate(QryMMInstrumentCommissionRateField^ pQryMMInstrumentCommissionRate, int nRequestID);
+            int ReqQryMMInstrumentCommissionRate(QryMMInstrumentCommissionRateField^ qryMMInstrumentCommissionRate, int requestID);
 
             /// <summary>请求查询做市商期权合约手续费</summary>
-            int ReqQryMMOptionInstrCommRate(QryMMOptionInstrCommRateField^ pQryMMOptionInstrCommRate, int nRequestID);
+            int ReqQryMMOptionInstrCommRate(QryMMOptionInstrCommRateField^ qryMMOptionInstrCommRate, int requestID);
 
             /// <summary>请求查询报单手续费</summary>
-            int ReqQryInstrumentOrderCommRate(QryInstrumentOrderCommRateField^ pQryInstrumentOrderCommRate, int nRequestID);
+            int ReqQryInstrumentOrderCommRate(QryInstrumentOrderCommRateField^ qryInstrumentOrderCommRate, int requestID);
 
             /// <summary>请求查询资金账户</summary>
-            int ReqQrySecAgentTradingAccount(QryTradingAccountField^ pQryTradingAccount, int nRequestID);
+            int ReqQrySecAgentTradingAccount(QryTradingAccountField^ qryTradingAccount, int requestID);
 
             /// <summary>请求查询二级代理商资金校验模式</summary>
-            int ReqQrySecAgentCheckMode(QrySecAgentCheckModeField^ pQrySecAgentCheckMode, int nRequestID);
+            int ReqQrySecAgentCheckMode(QrySecAgentCheckModeField^ qrySecAgentCheckMode, int requestID);
 
             /// <summary>请求查询二级代理商信息</summary>
-            int ReqQrySecAgentTradeInfo(QrySecAgentTradeInfoField^ pQrySecAgentTradeInfo, int nRequestID);
+            int ReqQrySecAgentTradeInfo(QrySecAgentTradeInfoField^ qrySecAgentTradeInfo, int requestID);
 
             /// <summary>请求查询期权交易成本</summary>
-            int ReqQryOptionInstrTradeCost(QryOptionInstrTradeCostField^ pQryOptionInstrTradeCost, int nRequestID);
+            int ReqQryOptionInstrTradeCost(QryOptionInstrTradeCostField^ qryOptionInstrTradeCost, int requestID);
 
             /// <summary>请求查询期权合约手续费</summary>
-            int ReqQryOptionInstrCommRate(QryOptionInstrCommRateField^ pQryOptionInstrCommRate, int nRequestID);
+            int ReqQryOptionInstrCommRate(QryOptionInstrCommRateField^ qryOptionInstrCommRate, int requestID);
 
             /// <summary>请求查询执行宣告</summary>
-            int ReqQryExecOrder(QryExecOrderField^ pQryExecOrder, int nRequestID);
+            int ReqQryExecOrder(QryExecOrderField^ qryExecOrder, int requestID);
 
             /// <summary>请求查询询价</summary>
-            int ReqQryForQuote(QryForQuoteField^ pQryForQuote, int nRequestID);
+            int ReqQryForQuote(QryForQuoteField^ qryForQuote, int requestID);
 
             /// <summary>请求查询报价</summary>
-            int ReqQryQuote(QryQuoteField^ pQryQuote, int nRequestID);
+            int ReqQryQuote(QryQuoteField^ qryQuote, int requestID);
 
             /// <summary>请求查询期权自对冲</summary>
-            int ReqQryOptionSelfClose(QryOptionSelfCloseField^ pQryOptionSelfClose, int nRequestID);
+            int ReqQryOptionSelfClose(QryOptionSelfCloseField^ qryOptionSelfClose, int requestID);
 
             /// <summary>请求查询投资单元</summary>
-            int ReqQryInvestUnit(QryInvestUnitField^ pQryInvestUnit, int nRequestID);
+            int ReqQryInvestUnit(QryInvestUnitField^ qryInvestUnit, int requestID);
 
             /// <summary>请求查询组合合约安全系数</summary>
-            int ReqQryCombInstrumentGuard(QryCombInstrumentGuardField^ pQryCombInstrumentGuard, int nRequestID);
+            int ReqQryCombInstrumentGuard(QryCombInstrumentGuardField^ qryCombInstrumentGuard, int requestID);
 
             /// <summary>请求查询申请组合</summary>
-            int ReqQryCombAction(QryCombActionField^ pQryCombAction, int nRequestID);
+            int ReqQryCombAction(QryCombActionField^ qryCombAction, int requestID);
 
             /// <summary>请求查询转帐流水</summary>
-            int ReqQryTransferSerial(QryTransferSerialField^ pQryTransferSerial, int nRequestID);
+            int ReqQryTransferSerial(QryTransferSerialField^ qryTransferSerial, int requestID);
 
             /// <summary>请求查询银期签约关系</summary>
-            int ReqQryAccountregister(QryAccountregisterField^ pQryAccountregister, int nRequestID);
+            int ReqQryAccountregister(QryAccountregisterField^ qryAccountregister, int requestID);
 
             /// <summary>请求查询签约银行</summary>
-            int ReqQryContractBank(QryContractBankField^ pQryContractBank, int nRequestID);
+            int ReqQryContractBank(QryContractBankField^ qryContractBank, int requestID);
 
             /// <summary>请求查询预埋单</summary>
-            int ReqQryParkedOrder(QryParkedOrderField^ pQryParkedOrder, int nRequestID);
+            int ReqQryParkedOrder(QryParkedOrderField^ qryParkedOrder, int requestID);
 
             /// <summary>请求查询预埋撤单</summary>
-            int ReqQryParkedOrderAction(QryParkedOrderActionField^ pQryParkedOrderAction, int nRequestID);
+            int ReqQryParkedOrderAction(QryParkedOrderActionField^ qryParkedOrderAction, int requestID);
 
             /// <summary>请求查询交易通知</summary>
-            int ReqQryTradingNotice(QryTradingNoticeField^ pQryTradingNotice, int nRequestID);
+            int ReqQryTradingNotice(QryTradingNoticeField^ qryTradingNotice, int requestID);
 
             /// <summary>请求查询经纪公司交易参数</summary>
-            int ReqQryBrokerTradingParams(QryBrokerTradingParamsField^ pQryBrokerTradingParams, int nRequestID);
+            int ReqQryBrokerTradingParams(QryBrokerTradingParamsField^ qryBrokerTradingParams, int requestID);
 
             /// <summary>请求查询经纪公司交易算法</summary>
-            int ReqQryBrokerTradingAlgos(QryBrokerTradingAlgosField^ pQryBrokerTradingAlgos, int nRequestID);
+            int ReqQryBrokerTradingAlgos(QryBrokerTradingAlgosField^ qryBrokerTradingAlgos, int requestID);
 
             /// <summary>请求查询监控中心用户令牌</summary>
-            int ReqQueryCFMMCTradingAccountToken(QueryCFMMCTradingAccountTokenField^ pQueryCFMMCTradingAccountToken, int nRequestID);
+            int ReqQueryCFMMCTradingAccountToken(QueryCFMMCTradingAccountTokenField^ queryCFMMCTradingAccountToken, int requestID);
 
             /// <summary>期货发起银行资金转期货请求</summary>
-            int ReqFromBankToFutureByFuture(ReqTransferField^ pReqTransfer, int nRequestID);
+            int ReqFromBankToFutureByFuture(ReqTransferField^ reqTransfer, int requestID);
 
             /// <summary>期货发起期货资金转银行请求</summary>
-            int ReqFromFutureToBankByFuture(ReqTransferField^ pReqTransfer, int nRequestID);
+            int ReqFromFutureToBankByFuture(ReqTransferField^ reqTransfer, int requestID);
 
             /// <summary>期货发起查询银行余额请求</summary>
-            int ReqQueryBankAccountMoneyByFuture(ReqQueryAccountField^ pReqQueryAccount, int nRequestID);
+            int ReqQueryBankAccountMoneyByFuture(ReqQueryAccountField^ reqQueryAccount, int requestID);
 
 #pragma endregion
 
